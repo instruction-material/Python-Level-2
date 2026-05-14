@@ -6,8 +6,6 @@ Promotion rule: move a folder out of this ledger only after the course text name
 
 | Folder | Classification | Action |
 | --- | --- | --- |
-| `_legacy-flat-layout` | legacy-or-archive | Legacy/archive material. Preserve for reference; do not link as active coursework without explicit migration. |
-| `legacy-customized` | legacy-or-archive | Legacy/archive material. Preserve for reference; do not link as active coursework without explicit migration. |
 | `PS15-Battleship` | inactive-source-candidate | Inactive/promotable source. Do not link until the course text, starter/solution role, and verification expectation are added. |
 | `PS15-Farkle` | inactive-source-candidate | Inactive/promotable source. Do not link until the course text, starter/solution role, and verification expectation are added. |
 | `PS15-Simple-RPG` | inactive-source-candidate | Inactive/promotable source. Do not link until the course text, starter/solution role, and verification expectation are added. |
