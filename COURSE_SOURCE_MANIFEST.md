@@ -27,21 +27,15 @@ Canonical source repository: `Python-Level-2`
 | `PS10-Field-Day-II` |
 | `PS10-Todo-List` |
 | `PS10-US-Capitals-Quiz` |
-| `PS10-US-Capitals-Quiz-Starter` |
 | `PS11-Bank-Account` |
 | `PS11-Calculator` |
 | `PS11-Juni-World` |
-| `PS11-Juni-World-Starter` |
 | `PS12-Evil-Wheel-of-Fortune` |
-| `PS12-Evil-Wheel-of-Fortune-Starter` |
 | `PS12-Review-Sentiment` |
-| `PS12-Review-Sentiment-Starter` |
 | `PS12-Type-Racer` |
 | `PS13-Advanced-Typewriter-Monkeys` |
 | `PS13-Typewriter-Monkeys` |
-| `PS13-Typewriter-Monkeys-Starter` |
 | `PS13-Wordsmith` |
-| `PS13-Wordsmith-Starter` |
 | `PS14-Advanced-Blackjack` |
 | `PS14-Game-of-War` |
 | `PS14-Mastermind` |
@@ -50,7 +44,6 @@ Canonical source repository: `Python-Level-2`
 | `PS2-Change-Machine` |
 | `PS2-Crazy-Nametags` |
 | `PS2-Debugging-Loops` |
-| `PS2-Debugging-Loops-Solution` |
 | `PS2-Double-or-Nothing` |
 | `PS2-For-Loop-Fun` |
 | `PS2-Interest-Aggregator` |
@@ -66,7 +59,6 @@ Canonical source repository: `Python-Level-2`
 | `PS4-Carnival-Strength-Tester` |
 | `PS4-Credit-Card-Validator` |
 | `PS4-Debugging-Conditionals` |
-| `PS4-Debugging-Conditionals-Solution` |
 | `PS4-FizzBuzz` |
 | `PS4-Joes-Donuts-Opening-Day` |
 | `PS4-Number-Guesser` |
@@ -75,7 +67,6 @@ Canonical source repository: `Python-Level-2`
 | `PS4-Test-Statistics` |
 | `PS5-Coin-Flipper` |
 | `PS5-Debugging-Functions` |
-| `PS5-Debugging-Functions-Solution` |
 | `PS5-Dice-Roller` |
 | `PS5-Functions-Practice` |
 | `PS5-Juni-Latin` |
@@ -86,42 +77,35 @@ Canonical source repository: `Python-Level-2`
 | `PS6-Build-a-Song` |
 | `PS6-Card-Shuffler` |
 | `PS6-Debugging-Lists` |
-| `PS6-Debugging-Lists-Solution` |
 | `PS6-Dog-Breeds` |
 | `PS6-Lists-Practice-1` |
 | `PS6-Song-Generator` |
-| `PS6-Song-Generator-Starter` |
 | `PS6-Stock-Trader` |
-| `PS6-Stock-Trader-Starter` |
 | `PS6-Tower-of-Terror` |
 | `PS7-Birthday-Converter` |
-| `PS7-Birthday-Converter-Starter` |
 | `PS7-Coffee-Shop` |
-| `PS7-Coffee-Shop-Starter` |
 | `PS7-Debugging-Dictionaries` |
-| `PS7-Debugging-Dictionaries-Solution` |
 | `PS7-Dictionaries-Practice` |
 | `PS7-Dictionary-Indexing` |
-| `PS7-Dictionary-Indexing-Starter` |
 | `PS7-Song-Generator-2` |
-| `PS7-Song-Generator-2-Starter` |
 | `PS7-Test-Scores` |
 | `PS8-Morse-Code` |
-| `PS8-Morse-Code-Starter` |
 | `PS9-Class-Registration` |
 | `PS9-Class-Registration-II` |
-| `PS9-Class-Registration-Starter` |
 | `PS9-Debugging-Sets` |
-| `PS9-Debugging-Sets-Solution` |
 | `PS9-Favorite-Foods` |
 | `PS9-Sets-Practice` |
 | `PS9-Soccer-Nationalities` |
-| `PS9-Soccer-Nationalities-Starter` |
 | `PS9-Wheel-of-Fortune` |
 
 ## Source Inventory
 
-- Top-level folders: 112
-- Active linked folders: 102
-- Ledgered inactive/support folders: 10
-- Source-like files: 244
+- Active project folders: 81
+- Active linked folders: 81
+- Archived inactive/support folders: 8
+- Wrapper project folders: 81
+- Placeholder role folders awaiting a distinct counterpart: 60
+- Complete starter/solution pairs with distinct migrated content: 21
+- Active source-like files excluding archive: 261
+
+Notes: active source-like files exclude `_archived-unlinked/`. Placeholder role folders are structural markers only; they do not contain assignment source yet.
