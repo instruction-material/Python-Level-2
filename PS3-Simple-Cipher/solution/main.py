@@ -1,10 +1,10 @@
 # Part 1: Ask the user for a secret message. Then, print out the message translated into ASCII, with a space between each character.
 msg = input("Type in your message to encrypt: ")
-new_msg = ''
+new_msg = ""
 
 for i in range(0, len(msg)):
-  num = ord(msg[i])
-  new_msg += str(num) + ' '
+    num = ord(msg[i])
+    new_msg += str(num) + " "
 
 print(new_msg)
 
@@ -12,9 +12,9 @@ print(new_msg)
 
 msg = input("Type in your message to encrypt: ")
 key = int(input("Type in the key you wish to use: "))
-new_msg = ''
+new_msg = ""
 for i in range(0, len(msg)):
-  num = ord(msg[i])
-  new_msg += str(num + key) + ' '
+    num = ord(msg[i])
+    new_msg += str(num + key) + " "
 
 print(new_msg)

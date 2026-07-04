@@ -15,24 +15,24 @@ f.close()
 # construct dictionary of state-capital pairs
 d = {}
 for i in range(len(states)):
-  d[states[i]] = capitals[i]
+    d[states[i]] = capitals[i]
 
 # ask the user for random capitals until they answer incorrectly
 
 score = 0
 
 while True:
-  rand_ind = random.randint(0, len(states)-1)
-  state = states[rand_ind]
+    rand_ind = random.randint(0, len(states) - 1)
+    state = states[rand_ind]
 
-  guess = input("What is the capital of " + state + "? ")
+    guess = input("What is the capital of " + state + "? ")
 
-  if guess == d[state]:
-    print("Correct!")
-    score += 1
+    if guess == d[state]:
+        print("Correct!")
+        score += 1
 
-  else:
-    print("Incorrect! Game over :(")
-    break
+    else:
+        print("Incorrect! Game over :(")
+        break
 
 print("Your total score was: " + str(score))

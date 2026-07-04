@@ -7,4 +7,4 @@ player4 = float(input("Runner 4, enter your time in seconds: "))
 
 total_time = player1 + player2 + player3 + player4
 print("Your team's time was " + str(total_time) + " seconds")
-print("The average time of each lap was " + str(total_time/4) + " seconds")
+print("The average time of each lap was " + str(total_time / 4) + " seconds")

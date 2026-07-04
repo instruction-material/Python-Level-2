@@ -8,13 +8,15 @@ song = []
 notes_dict = {"whole": 1, "half": 2, "quarter": 4, "eighth": 8}
 
 while True:
-  note = input("Enter a note to add to your song! Or enter 1 stop. ")
+    note = input("Enter a note to add to your song! Or enter 1 stop. ")
 
-  if note == "1":
-    break
+    if note == "1":
+        break
 
-  duration = input("Enter the duration for the previous note: whole, half, quarter, or eighth. ")
+    duration = input(
+        "Enter the duration for the previous note: whole, half, quarter, or eighth. "
+    )
 
-  song.append((note, notes_dict[duration]))
+    song.append((note, notes_dict[duration]))
 
-pysynth.make_wav(song, fn='song.wav')
+pysynth.make_wav(song, fn="song.wav")

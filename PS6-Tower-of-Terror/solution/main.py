@@ -1,11 +1,12 @@
 def get_weights():
-  riders = []
-  for i in range(10):
-    weight = input("Enter rider " + str(i + 1) + "'s weight (or q to quit): ")
-    if weight == 'q':
-      break
-    riders.append(int(weight))
-  return riders
+    riders = []
+    for i in range(10):
+        weight = input("Enter rider " + str(i + 1) + "'s weight (or q to quit): ")
+        if weight == "q":
+            break
+        riders.append(int(weight))
+    return riders
+
 
 riders = get_weights()
 print("The list of rider weights is:")
@@ -13,6 +14,6 @@ print(riders)
 
 sum = 0
 for r in riders:
-  sum += r
+    sum += r
 print("The total weight of the riders is: " + str(sum))
-print("The average weight of the riders is: " + str(sum/len(riders)))
+print("The average weight of the riders is: " + str(sum / len(riders)))
