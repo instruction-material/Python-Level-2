@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 # Part 1: Ask the user for a secret message. Then, print out the message translated into ASCII, with a space between each character.
 msg = input("Type in your message to encrypt: ")
 new_msg = ""

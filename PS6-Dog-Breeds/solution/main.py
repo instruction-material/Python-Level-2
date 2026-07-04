@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 dogs = ["beagle", "collie", "greyhound", "komondor", "mastiff", "pug", "terrier"]
 
 for dog in dogs:

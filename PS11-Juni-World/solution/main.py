@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 rides_dict = {
     "Tower of Turtles": 90,
     "String Mountain": 130,

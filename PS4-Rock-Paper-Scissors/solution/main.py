@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 user1 = input("Player 1, please pick rock, paper, or scissors: ")
 user2 = input("Player 2, please pick rock, paper, or scissors: ")
 

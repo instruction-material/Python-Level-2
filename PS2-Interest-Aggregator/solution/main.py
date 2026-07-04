@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 interest_rate = 0.01
 
 balance = float(input("How much money do you currently have in your account? "))

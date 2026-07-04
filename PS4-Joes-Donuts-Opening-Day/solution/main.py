@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 print(
     "Welcome to Opening Day at Joe's Donuts! We're so glad you're here, and we have some special surprises for you!"
 )

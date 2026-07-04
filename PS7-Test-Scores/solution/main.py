@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 num_students = int(input("Enter the number of students: "))
 num_tests = int(input("Enter the number of tests each student took: "))
 

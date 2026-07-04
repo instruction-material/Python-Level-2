@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 for i in range(1, 51):
     if i % 15 == 0:
         print("FizzBuzz")

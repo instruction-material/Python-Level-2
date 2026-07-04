@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 # Create a dictionary where there are five key-value pairs. Each key should be a word in English language and each value should the word's definition. Then, print out the dictionary.
 
 words = {}

@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 # Start the game with all of the players free (i.e. no one has been captured yet)
 team1free = set()
 team1free.add("Jared")

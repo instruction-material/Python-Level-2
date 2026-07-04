@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 """
 ##########################################################################
 #                       * * *  PySynth  * * *

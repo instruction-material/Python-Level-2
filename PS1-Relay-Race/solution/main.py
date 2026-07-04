@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 print("Let's see how your team did in the 4x400 relay!")
 
 player1 = float(input("Runner 1, enter your time in seconds: "))

@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 # I have 15 Snickers, 7 Almond Joys, 6 Twix, 9 Kit Kats, 3 Reese's Cups, and 2 Butterfingers
 candies = {
     "Snickers": 15,

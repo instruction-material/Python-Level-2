@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 money = input(
     "Tell me how much money you have (in cents), and I'll tell you how many quarters you can have. "
 )

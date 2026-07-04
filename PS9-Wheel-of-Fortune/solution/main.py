@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 correct_word = "programming"
 guessed_letters = set()
 num_guesses_remaining = 15

@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 # Create a list called nums. Add the numbers 10 to 0 to the list using a loop. Then, print out nums.
 
 nums = []

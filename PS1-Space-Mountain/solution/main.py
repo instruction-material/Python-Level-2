@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 capacity = 900
 
 p1_weight = int(input("Enter person 1's weight: "))

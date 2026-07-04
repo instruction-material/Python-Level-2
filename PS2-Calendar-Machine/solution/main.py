@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 days = int(
     input(
         "Enter in a number of days, and I will tell you how many years, months (assuming 30 days), weeks, and days this is: "

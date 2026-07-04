@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 accounts = {"janesmith": "secret123", "bobsmith": "programm3r"}
 balances = {"janesmith": 0, "bobsmith": 0}
 

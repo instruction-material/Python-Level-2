@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 d = {
     "d2": {"d3": {"d4": "eight"}},
     "l3": [1, "two"],

@@ -1,3 +1,8 @@
+###########################
+###   CODING STANDARD   ###
+###########################
+# Use named constants, descriptive names, and purpose comments before nontrivial scopes
+
 import random
 
 # Create two sets. In each set, add 5 different random numbers between 1 and 10. Then, print out these two sets, the union of these two sets, and the intersection of these two sets.
