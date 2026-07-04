@@ -1,10 +1,10 @@
 biology = ["Sarah", "Ahmed", "Fred", "Gillian", "Shradah", "Max", "Max", "Sara", "Max", "Esther"]
 
-computerScience = ["Sarah", "John", "Fred", "Gillian", "Jermaine", "Max", "Sara", "Juan", "Esther"]
+computer_science = ["Sarah", "John", "Fred", "Gillian", "Jermaine", "Max", "Sara", "Juan", "Esther"]
 
 english = ["Nico", "Sharjeel", "Isabella", "Taylor", "Ali", "Ali", "Jean-Baptiste", "Jean-Baptiste", "Jean-Baptiste", "William"]
 
-def generateWaitlist(students):
+def generate_waitlist(students):
   enrolled = set()
   waitlist = set()
   for name in students:
@@ -14,6 +14,6 @@ def generateWaitlist(students):
       waitlist.add(name)
   return waitlist
 
-print("Waitlisted for Biology: " + str(generateWaitlist(biology)))
-print("Waitlisted for Computer Science: " + str(generateWaitlist(computerScience)))
-print("Waitlisted for English: " + str(generateWaitlist(english)))
+print("Waitlisted for Biology: " + str(generate_waitlist(biology)))
+print("Waitlisted for Computer Science: " + str(generate_waitlist(computer_science)))
+print("Waitlisted for English: " + str(generate_waitlist(english)))

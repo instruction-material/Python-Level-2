@@ -1,54 +1,54 @@
 import random
 
-def diceRoll():
+def dice_roll():
   return random.randint(1,6)
 
-numRolls = 1000
-numTwos = 0
-numThrees = 0
-numFours = 0
-numFives = 0
-numSixes = 0
-numSevens = 0
-numEights = 0
-numNines = 0
-numTens = 0
-numElevens = 0
-numTwelves = 0
+num_rolls = 1000
+num_twos = 0
+num_threes = 0
+num_fours = 0
+num_fives = 0
+num_sixes = 0
+num_sevens = 0
+num_eights = 0
+num_nines = 0
+num_tens = 0
+num_elevens = 0
+num_twelves = 0
 
-for i in range(0,numRolls):
-  rollNum = diceRoll() + diceRoll()
-  if rollNum == 2:
-    numTwos += 1
-  elif rollNum == 3:
-    numThrees += 1
-  elif rollNum == 4:
-    numFours += 1
-  elif rollNum == 5:
-    numFives += 1
-  elif rollNum == 6:
-    numSixes += 1
-  elif rollNum == 7:
-    numSevens += 1
-  elif rollNum == 8:
-    numEights += 1
-  elif rollNum == 9:
-    numNines += 1
-  elif rollNum == 10:
-    numTens += 1
-  elif rollNum == 11:
-    numElevens += 1
-  elif rollNum == 12:
-    numTwelves += 1
+for i in range(0,num_rolls):
+  roll_num = dice_roll() + dice_roll()
+  if roll_num == 2:
+    num_twos += 1
+  elif roll_num == 3:
+    num_threes += 1
+  elif roll_num == 4:
+    num_fours += 1
+  elif roll_num == 5:
+    num_fives += 1
+  elif roll_num == 6:
+    num_sixes += 1
+  elif roll_num == 7:
+    num_sevens += 1
+  elif roll_num == 8:
+    num_eights += 1
+  elif roll_num == 9:
+    num_nines += 1
+  elif roll_num == 10:
+    num_tens += 1
+  elif roll_num == 11:
+    num_elevens += 1
+  elif roll_num == 12:
+    num_twelves += 1
 
-print(str((numTwos/numRolls) * 100) + "% of your rolls were 2.")
-print(str((numThrees/numRolls) * 100) + "% of your rolls were 3.")
-print(str((numFours/numRolls) * 100) + "% of your rolls were 4.")
-print(str((numFives/numRolls) * 100) + "% of your rolls were 5.")
-print(str((numSixes/numRolls) * 100) + "% of your rolls were 6.")
-print(str((numSevens/numRolls) * 100) + "% of your rolls were 7.")
-print(str((numEights/numRolls) * 100) + "% of your rolls were 8.")
-print(str((numNines/numRolls) * 100) + "% of your rolls were 9.")
-print(str((numTens/numRolls) * 100) + "% of your rolls were 10.")
-print(str((numElevens/numRolls) * 100) + "% of your rolls were 11.")
-print(str((numTwelves/numRolls) * 100) + "% of your rolls were 12.")
+print(str((num_twos/num_rolls) * 100) + "% of your rolls were 2.")
+print(str((num_threes/num_rolls) * 100) + "% of your rolls were 3.")
+print(str((num_fours/num_rolls) * 100) + "% of your rolls were 4.")
+print(str((num_fives/num_rolls) * 100) + "% of your rolls were 5.")
+print(str((num_sixes/num_rolls) * 100) + "% of your rolls were 6.")
+print(str((num_sevens/num_rolls) * 100) + "% of your rolls were 7.")
+print(str((num_eights/num_rolls) * 100) + "% of your rolls were 8.")
+print(str((num_nines/num_rolls) * 100) + "% of your rolls were 9.")
+print(str((num_tens/num_rolls) * 100) + "% of your rolls were 10.")
+print(str((num_elevens/num_rolls) * 100) + "% of your rolls were 11.")
+print(str((num_twelves/num_rolls) * 100) + "% of your rolls were 12.")

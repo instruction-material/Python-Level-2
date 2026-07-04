@@ -2,7 +2,7 @@
 
 ############################################
 
-# What is a variable? Store the string “animal” in a variable called word. Store the number 42 in a variable called num. 
+# What is a variable? Store the string “animal” in a variable called word. Store the number 42 in a variable called num.
 word = "animal"
 num = 42
 
@@ -38,7 +38,7 @@ print("You guessed a " + color + " " + animal)
 # What is a loop? What do we use it for?
   # ex: We use it when we want to repeat some code over and over / when we want to do something multiple times!
 
-# What is the difference between a for loop and a while loop? 
+# What is the difference between a for loop and a while loop?
   # ex: We use a for loop when we want to repeat a certain number of times, and a while loop if we want to repeat until a condition is met
 
 # Print the numbers 0 to 10 using a for loop
@@ -93,7 +93,7 @@ if animal == "dog" and color == "black":
   print ("Correct answer!")
 elif animal == "dog" or color == "black":
     print("Almost there!")
-else: 
+else:
   print ("Incorrect answer :(")
 
 #  Do you remember what a nested if statement is? How would you change part of the above problem to include a nested if statement?
@@ -102,7 +102,7 @@ if animal == "dog":
       print ("You're right!")
   else:
     print ("You have the right animal! Try a different color")
-else: 
+else:
   print("Incorrect answer :(")
 
 ############################################
@@ -113,21 +113,21 @@ else:
 
 # Ask the user for a word. If the word has an even number of letters,shift all the letters up one to the next letter in the alphabet. If the word has an odd number of letters, shift all the letters back one to the previous letter in the alphabet.
 word = input("Enter a word: ")
-newWord = ''
+new_word = ''
 for i in range(0,len(word)):
   if len(word)%2 == 0:
-    newWord += chr(ord(word[i]) + 1)
+    new_word += chr(ord(word[i]) + 1)
   else:
-    newWord += chr(ord(word[i]) - 1)
-print(newWord)
+    new_word += chr(ord(word[i]) - 1)
+print(new_word)
 
 
 # Ask the user for a word. For all even-numbered letters (e.g. index 0,2,4) in the word, shift the letter up one, and for all the odd-numbered letters (e.g. index 1,3) in the word, shift the letter down one.
 word = input("enter a word: ")
-newWord = ''
+new_word = ''
 for i in range(0,len(word)):
   if i%2 == 0:
-    newWord += chr(ord(word[i]) + 1)
+    new_word += chr(ord(word[i]) + 1)
   else:
-    newWord += chr(ord(word[i]) - 1)
-print(newWord)
+    new_word += chr(ord(word[i]) - 1)
+print(new_word)

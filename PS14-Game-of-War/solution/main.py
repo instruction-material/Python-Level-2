@@ -4,11 +4,11 @@ import random
 player1 = input("Enter player 1's name: ")
 player2 = input("Enter player 2's name: ")
 
-numRounds = 10
+num_rounds = 10
 score1 = 0
 score2 = 0
 
-for i in range(1, numRounds+1):
+for i in range(1, num_rounds+1):
   print("Round " + str(i) + ":")
 
   card1 = random.randint(2,10)
@@ -28,7 +28,7 @@ for i in range(1, numRounds+1):
     score2 += 1
   else:
     print("This round is a tie!\n")
-  
+
   time.sleep(1)
 
 print("Final scores:")

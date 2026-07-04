@@ -3,18 +3,18 @@ import time
 
 # reads words into list
 f = open("valid_words.txt")
-validWords = f.readlines()
-validWords = [x.strip() for x in validWords]
+valid_words = f.readlines()
+valid_words = [x.strip() for x in valid_words]
 f.close()
 
 # pick 7 random letters (use a set to avoid duplicates)
 letters = set()
 
 while len(letters) < 7:
-  startNum = ord('a')
-  endNum = ord('z')
-  randomNum = random.randint(startNum, endNum)
-  letter = chr(randomNum)
+  start_num = ord('a')
+  end_num = ord('z')
+  random_num = random.randint(start_num, end_num)
+  letter = chr(random_num)
   letters.add(letter)
 
 # sets up score
@@ -36,12 +36,12 @@ print(letters)
 
 while True:
   word = input("Enter a word: ")
-  isValid = True
+  is_valid = True
   for letter in word:
     if letter not in letters:
-      isValid = False
-  if isValid:
-    if word in validWords and word not in words:
+      is_valid = False
+  if is_valid:
+    if word in valid_words and word not in words:
       score += len(word)
       words.add(word)
       print("Valid word! Your score: " + str(score) + "\n")

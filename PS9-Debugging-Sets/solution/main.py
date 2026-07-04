@@ -16,8 +16,8 @@ team2captured = set()
 
 # Keep playing until either someone steals the flag or an entire team gets captured
 while True:
-  capturedFlag = input("Did someone capture the flag? (Y/N): ")
-  if capturedFlag.lower() == "y":
+  captured_flag = input("Did someone capture the flag? (Y/N): ")
+  if captured_flag.lower() == "y":
     print("Game over, someone captured the flag!")
     break
   else:
@@ -39,15 +39,15 @@ while True:
     # Print everyone who is free on each team
     print("Here are the players who are still on the field for team 1:")
     for name in team1free:
-      print(name) 
+      print(name)
     print("Here are the players who are still on the field for team 2:")
     for name in team2free:
-      print(name) 
+      print(name)
 
     # Print everyone who is in jail
     print("Here are the players who are in jail:")
-    totalCaptured = team1captured.union(team2captured)
-    for name in totalCaptured:
+    total_captured = team1captured.union(team2captured)
+    for name in total_captured:
       print(name)
 
     # Check if an entire team has been captured

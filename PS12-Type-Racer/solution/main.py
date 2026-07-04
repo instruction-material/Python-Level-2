@@ -12,11 +12,11 @@ print("Type!")
 
 sentence = sentences[random.randint(0, 5)]
 print(sentence)
-startTime = time.time()
-typedInput = input("Type: ")
-while typedInput != sentence:
+start_time = time.time()
+typed_input = input("Type: ")
+while typed_input != sentence:
   print("The sentences do not match! Please try again.")
-  typedInput = input("Type: ")
-endTime = time.time()
+  typed_input = input("Type: ")
+end_time = time.time()
 
-print("You finished typing in " + str(endTime - startTime) + " seconds!")
+print("You finished typing in " + str(end_time - start_time) + " seconds!")

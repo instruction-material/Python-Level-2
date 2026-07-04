@@ -4,83 +4,83 @@ import time
 input("Welcome to the game of Blackjack! In this game, you will be dealt two cards to start. Your goal is to get as close to 21 as possible without going over - or busting! In this simple version of Blackjack, we only use the cards 2 through 11 (Ace).\n\nThe dealer will first ask you to hit (take another card) or stay. As long as you don't bust, once you decide to stay, the dealer will then play his hand. The dealer always has to hit until his hand is at least 17. Whoever has the better hand at the end wins!\n\nPress Enter to start playing.\n")
 
 while True:
-  playerHand = []
+  player_hand = []
 
   # deal first two cards to player
   for i in range(2):
-    playerHand.append(random.randint(2,11))
+    player_hand.append(random.randint(2,11))
 
   # print out player's cards
   print("Here is your hand: ")
-  print(playerHand)
+  print(player_hand)
 
   # use this variable to track when the game should end immediately
-  continueGame = True  
+  continue_game = True
 
   # check for blackjack
-  if sum(playerHand) == 21:
+  if sum(player_hand) == 21:
     print("Blackjack! You win! :D")
-    continueGame = False
+    continue_game = False
 
-  if continueGame:
+  if continue_game:
     # ask to Hit or Stay
-    hitOrStay = "H"
-    continueGame = True  # use this variable to track whether the game ends immediately after this
-    while hitOrStay == "H":
+    hit_or_stay = "H"
+    continue_game = True  # use this variable to track whether the game ends immediately after this
+    while hit_or_stay == "H":
       while True:
-        hitOrStay = input("Type in H to hit or S to stay:")
-        if hitOrStay == "H" or hitOrStay == "S":
+        hit_or_stay = input("Type in H to hit or S to stay:")
+        if hit_or_stay == "H" or hit_or_stay == "S":
           break
         else:
           print("Invalid input.\n")
 
       # if Hit, add new card and check if busted
-      if hitOrStay == "H":
-        playerHand.append(random.randint(2,11))
+      if hit_or_stay == "H":
+        player_hand.append(random.randint(2,11))
         print("Here is your hand: ")
-        print(playerHand)
+        print(player_hand)
 
-        if sum(playerHand) > 21:
+        if sum(player_hand) > 21:
           print("You busted! :(\n")
-          continueGame = False
+          continue_game = False
           break
-        elif sum(playerHand) == 21:
+        elif sum(player_hand) == 21:
           print("Blackjack! You win! :D")
-          continueGame = False
+          continue_game = False
           break
-      
-    if continueGame:
+
+    if continue_game:
       print("Dealer's turn!\n")
 
       # deal first two cards to dealer
-      dealerHand = []
+      dealer_hand = []
       for i in range(2):
-        dealerHand.append(random.randint(2,11))
-      
+        dealer_hand.append(random.randint(2,11))
+
       # print out dealer's cards
       print("Here is the dealer's hand: ")
-      print(dealerHand)
+      print(dealer_hand)
 
       # the dealer continues to hit until his hand is at least 17
       while True:
         time.sleep(1) # make game more realistic
-        if sum(dealerHand) < 17:
-          dealerHand.append(random.randint(2,11))
+        if sum(dealer_hand) < 17:
+          dealer_hand.append(random.randint(2,11))
           print("The dealer hit. Here is the dealer's new hand:")
-          print(dealerHand)
-        elif sum(dealerHand) == 21:
+          print(dealer_hand)
+        elif sum(dealer_hand) == 21:
           print("The dealer got blackjack!")
           break
-        elif sum(dealerHand) > 21:
+        elif sum(dealer_hand) > 21:
           print("The dealer busted! You win! :)")
           break
         else:
           print("The dealer has finalized his hand.")
           # if the game is still going, see whose hand wins
           time.sleep(1)
-          if sum(playerHand) > sum(dealerHand):
+          if sum(player_hand) > sum(dealer_hand):
             print("You win! :)\n")
-          elif sum(playerHand) < sum(dealerHand):
+          elif sum(player_hand) < sum(dealer_hand):
             print("The dealer won. :(\n")
           else:
             print("It's a tie!\n")

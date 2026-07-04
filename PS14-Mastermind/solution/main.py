@@ -1,39 +1,39 @@
-import random 
+import random
 
 def clear():
   print("\033c", end="")
 
-def getCorrect(code, guess):
-  numCorrect = 0
+def get_correct(code, guess):
+  num_correct = 0
   for i in range(len(guess)):
     if code[i] == guess[i]:
-      numCorrect += 1
-  return numCorrect
+      num_correct += 1
+  return num_correct
 
-def getClose(code, guess):
+def get_close(code, guess):
 
   #remove correct digits from both strings
-  newCode = ""
-  newGuess = ""
+  new_code = ""
+  new_guess = ""
   for i in range(len(guess)):
     if code[i] != guess[i]:
-      newCode += code[i] 
-      newGuess += guess[i]
-  code = newCode
-  guess = newGuess
+      new_code += code[i]
+      new_guess += guess[i]
+  code = new_code
+  guess = new_guess
 
   #calculate the correct number of close digits
-  numClose = 0
+  num_close = 0
   while len(code) > 0:
     for i in range(len(guess)):
       if guess[i] == code[0]:
         guess = guess[0:i] + guess[i+1:]
-        numClose+=1
+        num_close+=1
         break
     code = code[1:]
-  return numClose
+  return num_close
 
-def createSecretCode(digits):
+def create_secret_code(digits):
   code = ""
   for i in range(digits):
     code += str(random.randint(0,4))
@@ -56,7 +56,7 @@ clear()
 NUM_DIGITS = 4
 correct = 0
 close = 0
-code = createSecretCode(NUM_DIGITS)
+code = create_secret_code(NUM_DIGITS)
 
 while correct < NUM_DIGITS:
 
@@ -65,8 +65,8 @@ while correct < NUM_DIGITS:
     if len(guess) == NUM_DIGITS and guess.isdigit():
       break
 
-  correct = getCorrect(code, guess)
-  close = getClose(code, guess)
+  correct = get_correct(code, guess)
+  close = get_close(code, guess)
   print("Correct:", correct)
   print("Close:", close)
   print()

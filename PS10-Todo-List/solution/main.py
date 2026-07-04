@@ -2,18 +2,18 @@ print("Welcome to your todo list!\n")
 tasks = []
 
 while True:
-  inputNum = input("What would you like to do with your todo list? \n 1. Add a task \n 2. Remove a task \n 3. Exit \nType in the number here: ")
+  input_num = input("What would you like to do with your todo list? \n 1. Add a task \n 2. Remove a task \n 3. Exit \nType in the number here: ")
 
   print("")
-  if inputNum == "1":
+  if input_num == "1":
     task = input("Please type in the task you'd like to add: ")
     tasks.append(task)
-  elif inputNum == "2":
-    removeNum = input("Please type in the number of the task you'd like to remove: ")
-    tasks.remove(tasks[int(removeNum)-1])
-  elif inputNum == "3":
+  elif input_num == "2":
+    remove_num = input("Please type in the number of the task you'd like to remove: ")
+    tasks.remove(tasks[int(remove_num)-1])
+  elif input_num == "3":
     break
-  
+
   # print todo list
   print("")
   print("Here's your updated list: ")

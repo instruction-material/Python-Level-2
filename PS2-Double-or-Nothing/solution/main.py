@@ -3,9 +3,9 @@ import random
 money = 10
 
 while True:
-  playAgain = input("You currently have $" + str(money) + ". Type q to walk away and keep the money you have, or press Enter to continue: ")
+  play_again = input("You currently have $" + str(money) + ". Type q to walk away and keep the money you have, or press Enter to continue: ")
 
-  if playAgain == 'q':
+  if play_again == 'q':
     break
   else:
     # pick a random number: 0 = heads, 1 = tails

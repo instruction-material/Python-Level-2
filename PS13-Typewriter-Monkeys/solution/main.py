@@ -2,26 +2,26 @@ import random
 
 # reads words into list
 f = open("valid_words.txt")
-validWords = f.readlines()
-validWords = [x.strip() for x in validWords]
+valid_words = f.readlines()
+valid_words = [x.strip() for x in valid_words]
 f.close()
 
-monkeyStr = ""
+monkey_str = ""
 print("Here's what the monkeys are typing on the typewriter:")
 while True:
   # add a random character to the end of the monkeys' typing
-  monkeyStr += chr(random.randint(ord('a'),ord('z')))
-  print(monkeyStr)
+  monkey_str += chr(random.randint(ord('a'),ord('z')))
+  print(monkey_str)
 
   # check if last three letters are a valid word
-  if len(monkeyStr) >= 3:
+  if len(monkey_str) >= 3:
 
     # get the last three letters of what has been typed
     # Pythonic shortcut: lastThreeLetters = monkeyStr[len(monkeyStr)-3:len(monkeyStr)]
-    lastThreeLetters = ""
-    for i in range(len(monkeyStr)-3, len(monkeyStr)):
-      lastThreeLetters += monkeyStr[i]
-    
-    if lastThreeLetters in validWords:
-      print("The monkeys did it! " + lastThreeLetters + " is a word!")
+    last_three_letters = ""
+    for i in range(len(monkey_str)-3, len(monkey_str)):
+      last_three_letters += monkey_str[i]
+
+    if last_three_letters in valid_words:
+      print("The monkeys did it! " + last_three_letters + " is a word!")
       break

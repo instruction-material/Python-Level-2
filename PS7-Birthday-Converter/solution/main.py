@@ -1,4 +1,4 @@
-monthToString = {
+month_to_string = {
   1: "January",
   2: "February",
   3: "March",
@@ -13,7 +13,7 @@ monthToString = {
   12: "December"
 }
 
-daySuffix = {
+day_suffix = {
   0: "th",
   1: "st",
   2: "nd",
@@ -32,11 +32,11 @@ month = 10 * int(date[0]) + int(date[1])
 day = 10 * int(date[3]) + int(date[4])
 year = 1000 * int(date[6]) + 100 * int(date[7]) + 10 * int(date[8]) + int(date[9])
 
-monthString = monthToString[month]
-dayString = str(day) + daySuffix[day % 10]
+month_string = month_to_string[month]
+day_string = str(day) + day_suffix[day % 10]
 
 # special cases for 11th, 12th, 13th
 if day == 11 or day == 12 or day == 13:
-  dayString = str(day) + "th"
+  day_string = str(day) + "th"
 
-print("You were born on " + monthString + " " + dayString + ", " + str(year))
+print("You were born on " + month_string + " " + day_string + ", " + str(year))

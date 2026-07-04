@@ -1,15 +1,15 @@
-studentFoods = set()
-instructorFoods = set()
+student_foods = set()
+instructor_foods = set()
 
 print("Student, enter five of your favorite foods.")
 for i in range(5):
-  studentFoods.add(input("Food " + str(i+1) + ": "))
+  student_foods.add(input("Food " + str(i+1) + ": "))
 
 print("Instructor, enter five of your favorite foods.")
 for i in range(5):
-  instructorFoods.add(input("Food " + str(i+1) + ": "))
+  instructor_foods.add(input("Food " + str(i+1) + ": "))
 
-shared = studentFoods.intersection(instructorFoods)
+shared = student_foods.intersection(instructor_foods)
 
 if len(shared) == 0:
   print("You like completely different foods!")
@@ -18,12 +18,11 @@ else:
 
 # Challenge
 print("Here are the foods that only the student likes:")
-for food in studentFoods:
-  if food not in instructorFoods:
+for food in student_foods:
+  if food not in instructor_foods:
     print(food)
 
 print("Here are the foods that only the instructor likes:")
-for food in instructorFoods:
-  if not food in studentFoods:
+for food in instructor_foods:
+  if not food in student_foods:
     print(food)
-    

@@ -1,23 +1,23 @@
 msg = input("Type in your message to encrypt: ")
 key = int(input("Type in the key you wish to use: "))
-newMsg = ''
+new_msg = ''
 
 for i in range(0,len(msg)):
   num = ord(msg[i]) + key
   while num > ord('z'):
     num -= 26
-  newMsg += chr(num)
-  
-print(newMsg)
+  new_msg += chr(num)
+
+print(new_msg)
 
 msg = input("Type in your message to decrypt: ")
 key = int(input("Type in the decryption key: "))
-newMsg = ''
+new_msg = ''
 
 for i in range(0,len(msg)):
   num = ord(msg[i]) - key
   while num < ord('a'):
     num += 26
-  newMsg += chr(num)
-  
-print(newMsg)
+  new_msg += chr(num)
+
+print(new_msg)

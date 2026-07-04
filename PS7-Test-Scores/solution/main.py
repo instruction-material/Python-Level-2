@@ -1,27 +1,27 @@
-numStudents = int(input("Enter the number of students: "))
-numTests = int(input("Enter the number of tests each student took: "))
+num_students = int(input("Enter the number of students: "))
+num_tests = int(input("Enter the number of tests each student took: "))
 
-testScores = {}
+test_scores = {}
 
 # ask the user to enter each student's name
-for i in range(numStudents):
+for i in range(num_students):
     name = input("Enter student " + str(1 + i) + "'s name: ")
-    testScores[name] = []
+    test_scores[name] = []
 
 # ask the user to enter each test score
-for i in range(numTests):
-    for name in testScores:
+for i in range(num_tests):
+    for name in test_scores:
         score = int(input("Enter " + name + "'s score on test " + str(i+1) + ": "))
-        testScores[name].append(score)
+        test_scores[name].append(score)
 
-print(testScores)
+print(test_scores)
 
 # calculate each student's average exam score
 averages = {}
-for name in testScores:
+for name in test_scores:
     sum = 0
-    for score in testScores[name]:
+    for score in test_scores[name]:
         sum += score
-    averages[name] = sum / len(testScores[name])
+    averages[name] = sum / len(test_scores[name])
 
 print(averages)

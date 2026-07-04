@@ -6,17 +6,17 @@ print("GOOGL's most recent price: " + str(GOOGL[len(GOOGL) - 1]))
 print("AAPL's most recent price: " + str(AAPL[len(AAPL) - 1]))
 print("HD's most recent price: " + str(HD[len(HD) - 1]))
 
-GOOGLsum = 0
+goog_lsum = 0
 for trade in GOOGL:
-  GOOGLsum += trade
-print("The average (mean) price for GOOGL is " + str(GOOGLsum/len(GOOGL)))
+  goog_lsum += trade
+print("The average (mean) price for GOOGL is " + str(goog_lsum/len(GOOGL)))
 
-AAPLsum = 0
+aap_lsum = 0
 for trade in AAPL:
-  AAPLsum += trade
-print("The average (mean) price for AAPL is " + str(AAPLsum/len(AAPL)))
+  aap_lsum += trade
+print("The average (mean) price for AAPL is " + str(aap_lsum/len(AAPL)))
 
-HDsum = 0
+h_dsum = 0
 for trade in HD:
-  HDsum += trade
-print("The average (mean) price for HD is " + str(HDsum/len(HD)))
+  h_dsum += trade
+print("The average (mean) price for HD is " + str(h_dsum/len(HD)))

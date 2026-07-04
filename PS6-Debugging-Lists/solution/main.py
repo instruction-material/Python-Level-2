@@ -14,14 +14,14 @@ for flavor in flavors:
 
 
 # Check if any of my friends recommended chocolate mudslide (my favorite flavor) or pistachio (my least favorite flavor)
-numChocolateMudslide = 0
-numPistachio = 0
+num_chocolate_mudslide = 0
+num_pistachio = 0
 for i in range(len(flavors)):
   if flavors[i] == "chocolate mudslide":
-    numChocolateMudslide += 1
+    num_chocolate_mudslide += 1
   elif flavors[i] == "pistachio":
-    numPistachio += 1
+    num_pistachio += 1
 
 print()
-print(str(numChocolateMudslide) + " of my friends wanted chocolate mudslide, one of my favorite flavors!")
-print(str(numPistachio) + " of my friends wanted pistachio, my least favorite flavor!")
+print(str(num_chocolate_mudslide) + " of my friends wanted chocolate mudslide, one of my favorite flavors!")
+print(str(num_pistachio) + " of my friends wanted pistachio, my least favorite flavor!")

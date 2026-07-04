@@ -1,21 +1,21 @@
 sum = 0
-numStudents = 5
+num_students = 5
 
-minScore = 100
-maxScore = 0
+min_score = 100
+max_score = 0
 sum = 0
 
-for i in range(numStudents):
+for i in range(num_students):
   score = int(input("Enter student " + str(i + 1) + "'s score: "))
 
   sum += score
 
-  if score < minScore:
-    minScore = score
-  if score > maxScore:
-    maxScore = score
+  if score < min_score:
+    min_score = score
+  if score > max_score:
+    max_score = score
 
-average = sum / numStudents
-print("The highest score was: " + str(maxScore))
-print("The lowest score was: " + str(minScore))
+average = sum / num_students
+print("The highest score was: " + str(max_score))
+print("The lowest score was: " + str(min_score))
 print("The class average was: " + str(average))

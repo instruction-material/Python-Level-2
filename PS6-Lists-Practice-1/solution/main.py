@@ -42,21 +42,21 @@ print(factorials)
 
 # Write a function that takes in a list and returns the sum of the numbers.
 
-def sumList(x):
+def sum_list(x):
   answer = 0
   for num in x:
     answer += num
   return answer
 
-print(sumList(factorials))
+print(sum_list(factorials))
 
 # Challenge: Write a function that takes in a list and returns the largest number in the list. Don't forget that lists can have all negative numbers!
 
-def findMaxNum(x):
-  maxNum = x[0]
+def find_max_num(x):
+  max_num = x[0]
   for num in x:
-    if num > maxNum:
-      maxNum = num
-  return maxNum
+    if num > max_num:
+      max_num = num
+  return max_num
 
-print(findMaxNum(factorials))
+print(find_max_num(factorials))

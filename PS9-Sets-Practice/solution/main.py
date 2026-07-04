@@ -43,31 +43,31 @@ print(letters.intersection(letters2))
 
 # Write a function that takes in a set of numbers and returns a set with only the even numbers from that set.
 
-def getEvens(s):
-  newSet = set()
+def get_evens(s):
+  new_set = set()
   for num in s:
     if num % 2 == 0:
-      newSet.add(num)
-  return newSet
+      new_set.add(num)
+  return new_set
 
 s = set()
 s.add(1)
 s.add(2)
 s.add(3)
 s.add(4)
-print(getEvens(s))
+print(get_evens(s))
 
 # Write a function that takes in a set of words and returns a set with only the words that have 3 letters in them.
 
-def getThreeLetterWords(s):
-  newSet = set()
+def get_three_letter_words(s):
+  new_set = set()
   for word in s:
     if len(word) == 3:
-      newSet.add(word)
-  return newSet
+      new_set.add(word)
+  return new_set
 
 s = set()
 s.add("cat")
 s.add("bat")
 s.add("house")
-print(getThreeLetterWords(s))
+print(get_three_letter_words(s))

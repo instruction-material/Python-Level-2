@@ -1,4 +1,4 @@
-def getWeights():
+def get_weights():
   riders = []
   for i in range(10):
     weight = input("Enter rider " + str(i + 1) + "'s weight (or q to quit): ")
@@ -7,7 +7,7 @@ def getWeights():
     riders.append(int(weight))
   return riders
 
-riders = getWeights()
+riders = get_weights()
 print("The list of rider weights is:")
 print(riders)
 

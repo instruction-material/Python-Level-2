@@ -5,7 +5,7 @@ player2 = float(input("Runner 2, enter your time in seconds: "))
 player3 = float(input("Runner 3, enter your time in seconds: "))
 player4 = float(input("Runner 4, enter your time in seconds: "))
 
-totalTime = player1 + player2 + player3 + player4
+total_time = player1 + player2 + player3 + player4
 
 if player1 < player2 and player1 < player3 and player1 < player4:
   print("Runner 1 had the fastest time!")
@@ -18,33 +18,33 @@ elif player4 < player1 and player4 < player2 and player4 < player3:
 else:
   print("There was a tie for the fastest runner!")
 
-averageTime = totalTime / 4
-print("The average time of each lap " + str(averageTime) + " seconds")
+average_time = total_time / 4
+print("The average time of each lap " + str(average_time) + " seconds")
 
-if player1 < averageTime:
+if player1 < average_time:
   print("Runner 1 was faster than average")
-elif player1 == averageTime:
+elif player1 == average_time:
   print("Player 1 ran the average pace")
 else:
   print("Player 1 was slower than average")
 
-if player2 < averageTime:
+if player2 < average_time:
   print("Player 2 was faster than average")
-elif player2 == averageTime:
+elif player2 == average_time:
   print("Player 2 ran the average pace")
 else:
   print("Player 2 was slower than average")
 
-if player3 < averageTime:
+if player3 < average_time:
   print("Player 3 was faster than average")
-elif player3 == averageTime:
+elif player3 == average_time:
   print("Player 3 ran the average pace")
 else:
   print("Player 3 was slower than average")
 
-if player4 < averageTime:
+if player4 < average_time:
   print("Player 4 was faster than average")
-elif player4 == averageTime:
+elif player4 == average_time:
   print("Player 4 ran the average pace")
 else:
   print("Player 4 was slower than average")

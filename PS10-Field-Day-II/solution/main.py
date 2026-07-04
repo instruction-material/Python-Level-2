@@ -1,24 +1,24 @@
-import random 
+import random
 
 players = ['Alex', 'Barbara', 'Cole', 'Devyn', 'Eric', 'Fanny', 'George', 'Harsha', "Ignacio", "Julia"]
 
-teamRed = []
-teamBlue = []
+team_red = []
+team_blue = []
 
-while len(players) > 0: 
+while len(players) > 0:
   # choose player for Team Red
-  randInd = random.randint(0, len(players) - 1)
-  redPlayer = players[randInd]
-  teamRed.append(redPlayer)
-  players.remove(redPlayer)
-  print("Team Red: " + str(teamRed))
+  rand_ind = random.randint(0, len(players) - 1)
+  red_player = players[rand_ind]
+  team_red.append(red_player)
+  players.remove(red_player)
+  print("Team Red: " + str(team_red))
 
   # choose player for Team Blue
-  randInd = random.randint(0, len(players) - 1)
-  bluePlayer = players[randInd]
-  teamBlue.append(bluePlayer)
-  players.remove(bluePlayer)
-  print("Team Blue: " + str(teamBlue))
+  rand_ind = random.randint(0, len(players) - 1)
+  blue_player = players[rand_ind]
+  team_blue.append(blue_player)
+  players.remove(blue_player)
+  print("Team Blue: " + str(team_blue))
 
   print("Players left: " + str(players) + "\n")
 

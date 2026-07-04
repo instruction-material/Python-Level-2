@@ -22,15 +22,15 @@ for i in range(len(states)):
 score = 0
 
 while True:
-  randInd = random.randint(0, len(states)-1)
-  state = states[randInd]
+  rand_ind = random.randint(0, len(states)-1)
+  state = states[rand_ind]
 
   guess = input("What is the capital of " + state + "? ")
 
   if guess == d[state]:
     print("Correct!")
     score += 1
-  
+
   else:
     print("Incorrect! Game over :(")
     break
