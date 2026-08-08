@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 import random
 import time
 
@@ -135,9 +130,13 @@ while True:
                     print("The dealer has finalized his hand.")
                     # if the game is still going, see whose hand wins
                     time.sleep(1)
-                    if get_final_value(player_hand) > get_final_value(dealer_hand):
+                    if get_final_value(player_hand) > get_final_value(
+                        dealer_hand
+                    ):
                         print("You win! :)\n")
-                    elif get_final_value(player_hand) < get_final_value(dealer_hand):
+                    elif get_final_value(player_hand) < get_final_value(
+                        dealer_hand
+                    ):
                         print("The dealer won. :(\n")
                     else:
                         print("It's a tie!\n")

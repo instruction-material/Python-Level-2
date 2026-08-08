@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 adjective = input("Enter an adjective: ")
 adjective2 = input("Enter another adjective: ")
 noun = input("Enter a noun: ")

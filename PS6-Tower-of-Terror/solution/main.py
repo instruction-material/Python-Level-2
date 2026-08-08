@@ -1,12 +1,9 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 def get_weights():
     riders = []
     for i in range(10):
-        weight = input("Enter rider " + str(i + 1) + "'s weight (or q to quit): ")
+        weight = input(
+            "Enter rider " + str(i + 1) + "'s weight (or q to quit): "
+        )
         if weight == "q":
             break
         riders.append(int(weight))

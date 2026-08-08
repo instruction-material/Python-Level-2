@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 money = input(
     "Tell me how much money you have (in cents), and I'll tell you how many quarters you can have. "
 )
@@ -30,7 +25,11 @@ while money - 10 >= 0:
     num_dimes += 1
 
 print(
-    "You can have " + str(num_qtrs) + " quarters and " + str(num_dimes) + " dimes.\n\n"
+    "You can have "
+    + str(num_qtrs)
+    + " quarters and "
+    + str(num_dimes)
+    + " dimes.\n\n"
 )
 
 money = input(

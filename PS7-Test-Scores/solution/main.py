@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 num_students = int(input("Enter the number of students: "))
 num_tests = int(input("Enter the number of tests each student took: "))
 
@@ -16,7 +11,9 @@ for i in range(num_students):
 # ask the user to enter each test score
 for i in range(num_tests):
     for name in test_scores:
-        score = int(input("Enter " + name + "'s score on test " + str(i + 1) + ": "))
+        score = int(
+            input("Enter " + name + "'s score on test " + str(i + 1) + ": ")
+        )
         test_scores[name].append(score)
 
 print(test_scores)

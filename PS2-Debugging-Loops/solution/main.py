@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 # Ask the astronauts if they are ready to take off. Keep asking them until they say they are ready
 while input("Are we ready for takeoff yet? (Y/N): ") != "Y":
     print("Rechecking critical systems...")

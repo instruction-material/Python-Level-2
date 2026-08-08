@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 accounts = {"janesmith": "secret123", "bobsmith": "programm3r"}
 balances = {"janesmith": 0, "bobsmith": 0}
 
@@ -44,6 +39,8 @@ while True:
                 accounts[username] = new_password
                 print("\nYour password has been changed successfully!")
             else:
-                print("\nYour old password does not match the password in our records.")
+                print(
+                    "\nYour old password does not match the password in our records."
+                )
         elif num_choice == "4":
             break

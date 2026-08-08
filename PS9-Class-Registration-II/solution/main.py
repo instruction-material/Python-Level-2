@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 biology = [
     "Sarah",
     "Ahmed",
@@ -54,5 +49,8 @@ def generate_waitlist(students):
 
 
 print("Waitlisted for Biology: " + str(generate_waitlist(biology)))
-print("Waitlisted for Computer Science: " + str(generate_waitlist(computer_science)))
+print(
+    "Waitlisted for Computer Science: "
+    + str(generate_waitlist(computer_science))
+)
 print("Waitlisted for English: " + str(generate_waitlist(english)))

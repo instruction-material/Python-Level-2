@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 import random
 import time
 
@@ -53,7 +48,11 @@ while True:
             words.add(word)
             print("Valid word! Your score: " + str(score) + "\n")
         elif word in words:
-            print("You already entered this word! Your score: " + str(score) + "\n")
+            print(
+                "You already entered this word! Your score: "
+                + str(score)
+                + "\n"
+            )
         else:
             print("Invalid word! Your score: " + str(score) + "\n")
     else:

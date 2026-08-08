@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 password = "ilovecs"
 
 user_guess = input("Enter the password: ")
@@ -12,5 +7,7 @@ while user_guess != password:
     num_guesses = num_guesses + 1
 
 print(
-    "System unlocked! It took you " + str(num_guesses) + " tries to guess the password."
+    "System unlocked! It took you "
+    + str(num_guesses)
+    + " tries to guess the password."
 )

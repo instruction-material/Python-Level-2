@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 correct_word = "programming"
 guessed_letters = set()
 num_guesses_remaining = 15
@@ -33,7 +28,9 @@ while True:
 
     # ask for a guess
     guessed_letter = input(
-        "Guess a letter! You have " + str(num_guesses_remaining) + " guesses remaining."
+        "Guess a letter! You have "
+        + str(num_guesses_remaining)
+        + " guesses remaining."
     )
     num_guesses_remaining -= 1
 

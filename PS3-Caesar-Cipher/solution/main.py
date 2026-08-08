@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 msg = input("Type in your message to encrypt: ")
 key = int(input("Type in the key you wish to use: "))
 new_msg = ""

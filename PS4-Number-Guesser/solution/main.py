@@ -1,15 +1,12 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 import random
 
 rand_num = random.randint(1, 50)
 num_guesses = 1
 
 guess = int(
-    input("I am thinking of a random number between 1 and 50. Guess what it is! ")
+    input(
+        "I am thinking of a random number between 1 and 50. Guess what it is! "
+    )
 )
 
 while guess != rand_num:

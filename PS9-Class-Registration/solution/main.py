@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 biology = [
     "Sarah",
     "Ahmed",
@@ -46,7 +41,9 @@ biology_students = set()
 for name in biology:
     biology_students.add(name)
 
-print("Biology actually has " + str(len(biology_students)) + " students enrolled.")
+print(
+    "Biology actually has " + str(len(biology_students)) + " students enrolled."
+)
 
 computer_science_students = set()
 for name in computer_science:
@@ -62,6 +59,8 @@ english_students = set()
 for name in english:
     english_students.add(name)
 
-print("English actually has " + str(len(english_students)) + " students enrolled.")
+print(
+    "English actually has " + str(len(english_students)) + " students enrolled."
+)
 
 # Optional: Write a function getStudents(students) that takes in the list of students and returns the set of students.

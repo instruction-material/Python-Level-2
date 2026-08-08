@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 num_tickets = int(input("How many tickets did you win? "))
 
 lollipop_price = 10

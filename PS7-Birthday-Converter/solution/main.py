@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 month_to_string = {
     1: "January",
     2: "February",
@@ -35,7 +30,9 @@ date = input('Enter your birthday in the form "mm/dd/yyyy": ')
 
 month = 10 * int(date[0]) + int(date[1])
 day = 10 * int(date[3]) + int(date[4])
-year = 1000 * int(date[6]) + 100 * int(date[7]) + 10 * int(date[8]) + int(date[9])
+year = (
+    1000 * int(date[6]) + 100 * int(date[7]) + 10 * int(date[8]) + int(date[9])
+)
 
 month_string = month_to_string[month]
 day_string = str(day) + day_suffix[day % 10]

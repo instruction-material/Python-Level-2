@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 import random
 
 
@@ -71,7 +66,9 @@ code = create_secret_code(NUM_DIGITS)
 while correct < NUM_DIGITS:
 
     while True:
-        guess = input("Type in a " + str(NUM_DIGITS) + " digit guess (0-4): ").strip()
+        guess = input(
+            "Type in a " + str(NUM_DIGITS) + " digit guess (0-4): "
+        ).strip()
         if len(guess) == NUM_DIGITS and guess.isdigit():
             break
 

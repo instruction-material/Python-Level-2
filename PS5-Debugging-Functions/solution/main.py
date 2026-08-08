@@ -1,13 +1,10 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 import random
 
 
 def print_welcome():
-    print("I am thinking of a random number between 1 and 100. Guess what it is!")
+    print(
+        "I am thinking of a random number between 1 and 100. Guess what it is!"
+    )
 
 
 # Get my secret number between 1 and 100!
@@ -53,7 +50,9 @@ def play_game():
 
     # Ask the user to guess the secrete number, then check if they got it right. If they didn't get it right, let them keep guessing until they guess correctly!
     guess = get_guess_from_user()
-    num_guesses = 1  # Count how many guesses it took for the user to guess the number
+    num_guesses = (
+        1  # Count how many guesses it took for the user to guess the number
+    )
     while not answer_is_right(answer, guess):
         guess = get_guess_from_user()
         num_guesses = num_guesses + 1

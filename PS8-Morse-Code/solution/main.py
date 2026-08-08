@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 import pysynth
 
 # Reminder for using psynth:
@@ -51,7 +46,9 @@ def translate_to_morse_code(msg):
     return morse_msg
 
 
-msg = input("Type in a message to translate into morse code (in all lowercase): ")
+msg = input(
+    "Type in a message to translate into morse code (in all lowercase): "
+)
 print(translate_to_morse_code(msg))
 
 # 2. Define a function that takes in a message and converts that message into musical morse code. Each dot should be a C for an eighth note, and each dash should be a C for a half note. Rest for a half note inbetween each word and an eighth note between each dot or dash.
@@ -74,5 +71,7 @@ def translate_to_morse_code_music(msg):
     return song
 
 
-msg = input("Type in a message to translate into morse code music (in all lowercase): ")
+msg = input(
+    "Type in a message to translate into morse code music (in all lowercase): "
+)
 pysynth.make_wav(translate_to_morse_code_music(msg), fn="morseSong.wav")

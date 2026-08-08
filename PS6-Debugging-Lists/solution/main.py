@@ -1,8 +1,3 @@
-###########################
-###   CODING STANDARD   ###
-###########################
-# Use named constants, descriptive names, and purpose comments before nontrivial scopes
-
 # Create a list to store the flavors
 flavors = []
 
@@ -34,4 +29,7 @@ print(
     str(num_chocolate_mudslide)
     + " of my friends wanted chocolate mudslide, one of my favorite flavors!"
 )
-print(str(num_pistachio) + " of my friends wanted pistachio, my least favorite flavor!")
+print(
+    str(num_pistachio)
+    + " of my friends wanted pistachio, my least favorite flavor!"
+)
