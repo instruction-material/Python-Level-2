@@ -11,11 +11,18 @@ def load_words(path="valid_words.txt"):
         return {line.strip().lower() for line in word_file if line.strip()}
 
 
+######################
+###   HARD SECTION  ###
+######################
+# Optional: guarantee a vowel or customize the letter-selection rule.
 def choose_letters(rng=random):
     alphabet = [chr(number) for number in range(ord("a"), ord("z") + 1)]
     return set(rng.sample(alphabet, 7))
 
 
+########################
+###   NORMAL SECTION  ###
+########################
 def word_score(word):
     """Normal extension: change the score for one accepted word."""
     return len(word)
