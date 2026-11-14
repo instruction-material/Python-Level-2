@@ -1,59 +1,84 @@
+"""A timed seven-letter word game using the adjacent original dictionary."""
+import math
 import random
 import time
 
-# reads words into list
-f = open("valid_words.txt")
-valid_words = f.readlines()
-valid_words = [x.strip() for x in valid_words]
-f.close()
+ROUND_SECONDS = 60
 
-# pick 7 random letters (use a set to avoid duplicates)
-letters = set()
 
-while len(letters) < 7:
-    start_num = ord("a")
-    end_num = ord("z")
-    random_num = random.randint(start_num, end_num)
-    letter = chr(random_num)
-    letters.add(letter)
+def load_words(path="valid_words.txt"):
+    with open(path, encoding="utf-8") as word_file:
+        return {line.strip().lower() for line in word_file if line.strip()}
 
-# sets up score
-score = 0
 
-# sets up set of correctly guessed words
-words = set()
+def choose_letters(rng=random):
+    alphabet = [chr(number) for number in range(ord("a"), ord("z") + 1)]
+    return set(rng.sample(alphabet, 7))
 
-# prints instructions
-input(
-    "Welcome to Wordsmith! In this game, come up with as many words as you can using the 7 letters you are given. Press Enter to begin!"
-)
-print("Ready....")
-time.sleep(1)
-print("Set....")
-time.sleep(1)
-print("Go!")
 
-print("Your random letters are:")
-print(letters)
+def word_score(word):
+    """Normal extension: change the score for one accepted word."""
+    return len(word)
 
-while True:
-    word = input("Enter a word: ")
-    is_valid = True
-    for letter in word:
-        if letter not in letters:
-            is_valid = False
-    if is_valid:
-        if word in valid_words and word not in words:
-            score += len(word)
-            words.add(word)
-            print("Valid word! Your score: " + str(score) + "\n")
-        elif word in words:
-            print(
-                "You already entered this word! Your score: "
-                + str(score)
-                + "\n"
-            )
+
+def check_guess(word, letters, valid_words, found):
+    if not word or not set(word).issubset(letters):
+        return "unavailable letters"
+    if word in found:
+        return "already entered"
+    if word not in valid_words:
+        return "not in the word list"
+    return "valid"
+
+
+def play_round(valid_words, letters, duration=ROUND_SECONDS, read=input,
+               write=print, clock=time.monotonic):
+    """Check a monotonic deadline before and after each blocking input."""
+    if not math.isfinite(duration) or duration <= 0:
+        raise ValueError("Round duration must be a positive finite number.")
+    score = 0
+    found = set()
+    deadline = clock() + duration
+    reason = "time"
+    write("Letters: " + " ".join(sorted(letters)))
+    write("Round: " + str(duration) + " seconds. Enter :quit to stop.")
+    while clock() < deadline:
+        try:
+            word = read("Enter a word: ").strip().lower()
+        except (EOFError, KeyboardInterrupt):
+            reason = "input ended"
+            break
+        if clock() >= deadline:
+            break
+        if word == ":quit":
+            reason = "quit"
+            break
+        status = check_guess(word, letters, valid_words, found)
+        if status == "valid":
+            found.add(word)
+            score += word_score(word)
+            write("Valid word! Your score: " + str(score))
         else:
-            print("Invalid word! Your score: " + str(score) + "\n")
-    else:
-        print("You can only use the 7 letters you were given!\n")
+            write("Rejected: " + status + ". Your score: " + str(score))
+    if reason == "time":
+        write("Time is up.")
+    write("Final score: " + str(score))
+    write("Accepted words: " + ", ".join(sorted(found)))
+    return {"score": score, "words": sorted(found), "reason": reason}
+
+
+def main():
+    valid_words = load_words()
+    letters = choose_letters()
+    print("Wordsmith: make words using seven distinct letters.")
+    print("Letters may repeat within a word. Repeated words score once.")
+    try:
+        input("Press Enter to begin: ")
+    except (EOFError, KeyboardInterrupt):
+        print("Round cancelled.")
+        return {"score": 0, "words": [], "reason": "input ended"}
+    return play_round(valid_words, letters)
+
+
+if __name__ == "__main__":
+    main()
