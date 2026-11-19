@@ -1,5 +1,3 @@
-# PS2 Multiplication Tables starter
+# Multiplication Tables starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Run the first row. It contains twelve facts with the first factor fixed at 1. Add an outer loop so the first factor runs from 1 to 12 and the entire table has 144 facts.

@@ -1,5 +1,3 @@
-# PS2 Juni Archery starter
+# Archery Simulator starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Run a single round with three simulated shots. Add an outer loop for five rounds. Count each X as one bullseye and compare the final count with the printed shot results.

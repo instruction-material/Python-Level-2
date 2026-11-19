@@ -1,5 +1,3 @@
-# PS2 Interest Aggregator starter
+# Interest Aggregator starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Run the first-year calculation using a balance of 100 and an annual rate of 5 percent. Repeat the update for 20 years. Check that each year uses the previous year’s balance.

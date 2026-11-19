@@ -1,5 +1,3 @@
-# PS2 Crazy Nametags starter
+# Crazy Nametags starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Run the forward pattern with Ada. Add an every-other-letter pattern and a backward pattern. Use a while loop for at least one of the added versions and test a single letter.

@@ -1,13 +1,9 @@
-password = "ilovecs"
+target_phrase = "blue comet"
+guess = input("Enter a guess for the target phrase: ")
+attempts = 1
 
-user_guess = input("Enter the password: ")
-num_guesses = 1
-while user_guess != password:
-    user_guess = input("Incorrect password. Try again: ")
-    num_guesses = num_guesses + 1
+while guess != target_phrase:
+    guess = input("Different phrase. Try again: ")
+    attempts += 1
 
-print(
-    "System unlocked! It took you "
-    + str(num_guesses)
-    + " tries to guess the password."
-)
+print("Phrase matched. Attempts:", attempts)

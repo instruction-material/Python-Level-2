@@ -1,3 +1,4 @@
+print("Model units: 365-day year, 30-day month, 7-day week.")
 days = int(
     input(
         "Enter in a number of days, and I will tell you how many years, months (assuming 30 days), weeks, and days this is: "

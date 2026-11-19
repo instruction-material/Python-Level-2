@@ -1,5 +1,3 @@
-# PS2 Calendar Machine starter
+# Calendar Machine starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Run the year counter with 400 days. The model uses a 365-day year, a 30-day month, and a 7-day week. Continue subtracting from the remainder to find the months, weeks, and days.
