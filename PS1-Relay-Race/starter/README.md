@@ -1,5 +1,3 @@
-# PS1 Relay Race starter
+# Relay Race starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Enter the first runner time in seconds. Read three more times, then print the full time and average split in seconds. Check 60, 61, 62, and 63 seconds against 246 total and 61.5 per runner.

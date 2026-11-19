@@ -1,9 +1,9 @@
-bill = float(input("Enter your total bill amount, in dollars: "))
-tip_percent = float(
-    input("Enter the percent you would like to tip, as a decimal: ")
-)
+bill = float(input("Bill amount in dollars: "))
+tip_rate = float(input("Tip rate as a decimal, such as 0.18: "))
 
-tip = bill * tip_percent
+tip = bill * tip_rate
+total = bill + tip
 
-print("Your tip, rounded down to the nearest dollar: " + str(int(tip)))
-print("Your tip, rounded down to the nearest cent: " + str("%.2f" % tip))
+print(f"Whole-dollar tip estimate, rounded down: ${int(tip)}")
+print(f"Tip: ${tip:.2f}")
+print(f"Total: ${total:.2f}")

@@ -104,8 +104,8 @@ Canonical source repository: `Python-Level-2`
 - Active linked folders: 81
 - Archived inactive/support folders: 8
 - Wrapper project folders: 81
-- Placeholder role folders awaiting a distinct counterpart: 60
-- Complete starter/solution pairs with distinct migrated content: 21
-- Active source-like files excluding archive: 261
+- Placeholder role folders awaiting a distinct counterpart: 55
+- Complete starter/solution pairs: 26
+- Active source-like files excluding archive: 271
 
 Notes: active source-like files exclude `_archived-unlinked/`. Placeholder role folders are structural markers only; they do not contain assignment source yet.

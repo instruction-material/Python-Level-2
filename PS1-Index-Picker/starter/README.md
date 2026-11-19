@@ -1,5 +1,3 @@
-# PS1 Index Picker starter
+# Index Picker starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Enter a word and check that it prints back. Add an integer input and print the character at that index. With "planet", check positions 0, 2, and 5. Handle out-of-range indices as an extension.

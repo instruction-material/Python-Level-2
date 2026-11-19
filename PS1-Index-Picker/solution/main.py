@@ -1,7 +1,12 @@
-word = input("Enter a word: ")
-index = int(input("Enter an index: "))
+word = input("Enter a word or phrase: ")
+print("Word:", word)
 
-print("The word you entered was: " + word)
-print(
-    "The letter at index " + str(index) + " of " + word + " is: " + word[index]
-)
+try:
+    index = int(input("Enter an index: "))
+except ValueError:
+    print("Enter a whole-number index.")
+else:
+    if 0 <= index < len(word):
+        print(f"Character at index {index}: {word[index]}")
+    else:
+        print("That index is outside the word.")

@@ -1,5 +1,3 @@
-# PS1 Space Mountain starter
+# Space Mountain starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Enter a fictional rider weight and check the remaining capacity. Repeat the same update for the other three riders. Report whether the final modeled capacity is positive, zero, or below zero.

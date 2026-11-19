@@ -15,3 +15,10 @@ print("Remaining weight capacity " + str(capacity) + " pounds")
 p4_weight = int(input("Enter person 4's weight: "))
 capacity = capacity - p4_weight
 print("Remaining weight capacity " + str(capacity) + " pounds")
+
+if capacity < 0:
+    print("Model capacity exceeded by", -capacity, "pounds")
+elif capacity == 0:
+    print("Model capacity reached exactly")
+else:
+    print("Model capacity remaining:", capacity, "pounds")
