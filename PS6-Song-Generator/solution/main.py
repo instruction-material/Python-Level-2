@@ -1,34 +1,42 @@
-import pysynth
+import sys
 
-# Reminder for using psynth:
-# 1) You can see the project files by clicking the file icon on the sidebar to the left!
-# 2) Do not click on the wav file until the program is finished running (i.e. once you see the blue Run button again instead of the red Stop button)
+if sys.platform == "emscripten":
+    from pysynth import make_wav
+else:
+    from native_pysynth import make_wav
 
-song = []
 
-while True:
-    note = input("Enter a note to add to your song! Or enter 1 to stop.")
+PITCHES = {"c4", "d4", "e4", "f4", "g4", "a4", "b4", "c5", "r"}
+DURATIONS = {"1", "2", "4", "8"}
+MAX_NOTES = 6
 
-    if note == "1":
-        break
 
-    song.append((note, 4))
+def read_song():
+    song = []
+    while len(song) < MAX_NOTES:
+        try:
+            pitch = input("Pitch c4 through b4, c5, r, or q: ").strip().lower()
+            if pitch in {"q", "1"}:
+                break
+            if pitch not in PITCHES:
+                print("Choose one of the listed pitches or r for a rest.")
+                continue
 
-pysynth.make_wav(song, fn="song.wav")
+            duration = input("Duration 1, 2, 4 or 8: ").strip()
+            while duration not in DURATIONS:
+                print("Choose 1, 2, 4 or 8.")
+                duration = input("Duration 1, 2, 4 or 8: ").strip()
+        except EOFError:
+            break
+        song.append((pitch, int(duration)))
+        print(f"Added {pitch} with duration {duration}.")
+    return song
 
-# advanced version:
-"""
-song = []
 
-while True:
-  note = input("Enter a note to add to your song! Or enter 1 stop.")
-
-  if note == "1":
-    break
-
-  duration = input("Enter the duration for the previous note: 1, 2, 4, or 8.")
-
-  song.append((note, int(duration)))
-
-pysynth.make_wav(song, fn='song.wav')
-"""
+song = read_song()
+if song:
+    print(f"Song: {song}")
+    make_wav(song, bpm=120, fn="song.wav", silent=True)
+    print("Wrote song.wav.")
+else:
+    print("No notes entered.")

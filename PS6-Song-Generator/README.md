@@ -1,10 +1,5 @@
-# PS6 Song Generator
+# Song Generator
 
-Canonical source repository: `Python-Level-2`
+Collect up to six notes or rests. A pitch and duration are stored together in each list entry. The site IDE displays a player and WAV download. For a downloaded project, run `python3 main.py` with the bundled `native_pysynth` folder beside it.
 
-This project consolidates the legacy `PS6-Song-Generator` and `PS6-Song-Generator-Starter` folders into the common course wrapper layout.
-
-## Structure
-
-- `starter/` contains the starter/template snapshot.
-- `solution/` contains the solution/reference snapshot.
+The historical example audio is in `original-song.wav`. Running the program creates a new `song.wav`.

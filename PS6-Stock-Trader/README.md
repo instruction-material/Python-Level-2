@@ -1,10 +1,3 @@
-# PS6 Stock Trader
+# Stock Trader
 
-Canonical source repository: `Python-Level-2`
-
-This project consolidates the legacy `PS6-Stock-Trader` and `PS6-Stock-Trader-Starter` folders into the common course wrapper layout.
-
-## Structure
-
-- `starter/` contains the starter/template snapshot.
-- `solution/` contains the solution/reference snapshot.
+The fixed price histories let the most recent value and arithmetic mean be checked from list data. The starter shows one last value. The reference reports the most recent value and mean of each company, and handles an empty history separately.

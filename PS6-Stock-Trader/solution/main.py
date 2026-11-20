@@ -38,21 +38,15 @@ HD = [
     185.32,
 ]
 
-print("GOOGL's most recent price: " + str(GOOGL[len(GOOGL) - 1]))
-print("AAPL's most recent price: " + str(AAPL[len(AAPL) - 1]))
-print("HD's most recent price: " + str(HD[len(HD) - 1]))
 
-goog_lsum = 0
-for trade in GOOGL:
-    goog_lsum += trade
-print("The average (mean) price for GOOGL is " + str(goog_lsum / len(GOOGL)))
+def summarize(company, history):
+    if not history:
+        print(f"{company}: No prices.")
+        return
+    latest = history[-1]
+    mean = sum(history) / len(history)
+    print(f"{company}: Latest {latest:.2f}, mean {mean:.2f}.")
 
-aap_lsum = 0
-for trade in AAPL:
-    aap_lsum += trade
-print("The average (mean) price for AAPL is " + str(aap_lsum / len(AAPL)))
 
-h_dsum = 0
-for trade in HD:
-    h_dsum += trade
-print("The average (mean) price for HD is " + str(h_dsum / len(HD)))
+for company, history in [("GOOGL", GOOGL), ("AAPL", AAPL), ("HD", HD)]:
+    summarize(company, history)

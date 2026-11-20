@@ -1,3 +1,5 @@
 # Build a Song starter
 
-Open the included project folder and run main.py to make melody.wav. Each pair holds a pitch such as c4 and a duration denominator. A 4 is a quarter note, an 8 is an eighth note, and r is a rest. At 120 beats per minute, a quarter note lasts about half a second. Expand the two starter notes into an original phrase with at least four notes and a rest. Render it again after changing one duration. The result should be a playable file that reflects the edit.
+Run `main.py` to hear a quarter-note C and E. Change the first tuple from `("c4", 4)` to `("c4", 2)`. At 120 beats per minute, this adds half a second to the first pitch.
+
+Add different pitches and a rest. Use a note name such as `f4`, or `r` for a rest. Keep each entry a pair of a pitch and a duration. Download the WAV from the IDE or run `python3 main.py` beside the `native_pysynth` folder.

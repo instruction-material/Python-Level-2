@@ -37,3 +37,7 @@ HD = [
     183.42,
     185.32,
 ]
+
+print(f"GOOGL latest: {GOOGL[-1]:.2f}")
+
+# Compute the mean of each nonempty list and summarize all three companies.
