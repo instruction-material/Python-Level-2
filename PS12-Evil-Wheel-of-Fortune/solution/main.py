@@ -1,19 +1,18 @@
 import random
 
 
-def clear():
-    print("\033c", end="")
-
-
 def get_guess():
     while True:
-        guess = input("Enter a guess: ").lower().strip()
+        try:
+            guess = input("Enter a letter or quit: ").lower().strip()
+        except EOFError:
+            return None
+        if guess == "quit":
+            return None
         if guess in previous_guesses:
             print("You already guessed that! Try again!")
-        elif not guess.isalpha():
-            print("That's not a letter! Try again!")
-        elif len(guess) != 1:
-            print("You typed too much, or nothing at all! Try again!")
+        elif len(guess) != 1 or not guess.isascii() or not guess.isalpha():
+            print("Enter one letter from a through z.")
         else:
             return guess
 
@@ -63,8 +62,8 @@ def get_words_of_length(length, words):
 
 # -----------------------------------------------------
 
-with open("dictionary.txt") as f:
-    words = set(f.read().strip().split("\n"))
+with open("dictionary.txt", encoding="utf-8") as source:
+    words = set(source.read().split())
 
 length = random.randint(3, 8)
 status = "_ " * length
@@ -76,12 +75,14 @@ previous_guesses = []
 num_guesses = 15
 
 while True:
-    clear()
     print(status + "\n")
     print(str(num_guesses) + " guesses left!")
     print("Previous Guesses: " + " ".join(previous_guesses))
 
     guess = get_guess()
+    if guess is None:
+        print("Game ended.")
+        break
     previous_guesses.append(guess)
 
     # choose the worst case scenario (that's still possible)

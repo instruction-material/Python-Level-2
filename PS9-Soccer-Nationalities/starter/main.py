@@ -11,3 +11,5 @@ players = {
     "Alba": "Spain",
     "Ter Stegen": "Germany",
 }
+
+print(f"Sample players: {len(players)}")

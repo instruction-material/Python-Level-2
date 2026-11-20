@@ -1,5 +1,4 @@
-# reads words into list
-f = open("valid_words.txt")
-validWords = f.readlines()
-validWords = [x.strip() for x in validWords]
-f.close()
+with open("valid_words.txt", encoding="utf-8") as source:
+    valid_words = set(source.read().split())
+
+print(f"Loaded {len(valid_words)} three-letter words.")

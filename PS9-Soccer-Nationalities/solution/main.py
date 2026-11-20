@@ -12,16 +12,11 @@ players = {
     "Ter Stegen": "Germany",
 }
 
-players_set = set()
+countries = set()
 for player in players:
-    players_set.add(players[player])
+    countries.add(players[player])
 
-print(
-    "FC Barcelona has players from "
-    + str(len(players_set))
-    + " different countries."
-)
-
-print("FC Barcelona's players come from:")
-for nation in players_set:
-    print(nation)
+print(f"Sample players: {len(players)}")
+print(f"Distinct countries: {len(countries)}")
+for country in sorted(countries):
+    print(country)
