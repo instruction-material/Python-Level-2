@@ -1,5 +1,15 @@
-import pysynth
+import sys
 
-# Reminder for using psynth:
-# 1) You can see the project files by clicking the file icon on the sidebar to the left!
-# 2) Do not click on the wav file until the program is finished running (i.e. once you see the blue Run button again instead of the red Stop button)
+if sys.platform == "emscripten":
+    from pysynth import make_wav
+else:
+    from native_pysynth import make_wav
+
+
+DURATIONS = {"whole": 1, "half": 2, "quarter": 4, "eighth": 8}
+
+pair = ("c4", DURATIONS["quarter"])
+print(f"Quarter note pair: {pair}")
+make_wav([pair], fn="named_song.wav", bpm=120, silent=True)
+
+# Look up each duration name before appending its pitch and value.

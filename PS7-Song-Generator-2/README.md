@@ -1,10 +1,7 @@
-# PS7 Song Generator 2
+# Song Generator 2
 
-Canonical source repository: `Python-Level-2`
+Use a dictionary to translate duration names into numeric denominators. The starter renders one named duration. The reference reads up to six pairs, validates the pitch and duration, and renders a WAV.
 
-This project consolidates the legacy `PS7-Song-Generator-2` and `PS7-Song-Generator-2-Starter` folders into the common course wrapper layout.
+Run `main.py` in the site IDE and play or download the result. In a downloaded project run `python3 main.py` beside `native_pysynth`.
 
-## Structure
-
-- `starter/` contains the starter/template snapshot.
-- `solution/` contains the solution/reference snapshot.
+The prior example audio is retained in `original-song.wav`.

@@ -1,22 +1,42 @@
-import pysynth
+import sys
 
-# Reminder for using psynth:
-# 1) You can see the project files by clicking the file icon on the sidebar to the left!
-# 2) Do not click on the wav file until the program is finished running (i.e. once you see the blue Run button again instead of the red Stop button)
+if sys.platform == "emscripten":
+    from pysynth import make_wav
+else:
+    from native_pysynth import make_wav
 
-song = []
-notes_dict = {"whole": 1, "half": 2, "quarter": 4, "eighth": 8}
 
-while True:
-    note = input("Enter a note to add to your song! Or enter 1 stop. ")
+DURATIONS = {"whole": 1, "half": 2, "quarter": 4, "eighth": 8}
+PITCHES = {"c4", "d4", "e4", "f4", "g4", "a4", "b4", "c5", "r"}
 
-    if note == "1":
-        break
 
-    duration = input(
-        "Enter the duration for the previous note: whole, half, quarter, or eighth. "
-    )
+def collect_song():
+    song = []
+    while len(song) < 6:
+        try:
+            pitch = input("Pitch c4 through b4, c5, r, or q: ").strip().lower()
+            if pitch in {"q", "1"}:
+                break
+            if pitch not in PITCHES:
+                print("Choose one of the listed pitches.")
+                continue
+            name = input("Whole, half, quarter or eighth: ").strip().lower()
+            duration = DURATIONS.get(name)
+            while duration is None:
+                print("Choose a duration name from the list.")
+                name = input("Whole, half, quarter or eighth: ").strip().lower()
+                duration = DURATIONS.get(name)
+        except EOFError:
+            break
+        song.append((pitch, duration))
+        print(f"Added {pitch} with {name} = {duration}.")
+    return song
 
-    song.append((note, notes_dict[duration]))
 
-pysynth.make_wav(song, fn="song.wav")
+song = collect_song()
+if song:
+    print(f"Song: {song}")
+    make_wav(song, fn="named_song.wav", bpm=120, silent=True)
+    print("Wrote named_song.wav.")
+else:
+    print("No notes entered.")

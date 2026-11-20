@@ -1,10 +1,12 @@
-import pysynth
+import sys
 
-# Reminder for using psynth:
-# 1) You can see the project files by clicking the file icon on the sidebar to the left!
-# 2) Do not click on the wav file until the program is finished running (i.e. once you see the blue Run button again instead of the red Stop button)
+if sys.platform == "emscripten":
+    from pysynth import make_wav
+else:
+    from native_pysynth import make_wav
 
-morseDict = {
+
+MORSE = {
     "a": ".-",
     "b": "-...",
     "c": "-.-.",
@@ -33,6 +35,9 @@ morseDict = {
     "z": "--..",
 }
 
-# 1. Define a function that takes in a message and converts that message into morse code. (Make sure to put extra spaces inbetween your words.) Using the function, ask the user for a message and print out the translated message.
+sample = MORSE["a"]
+print(f"A: {sample}")
+make_wav([("c4", 8), ("r", 8), ("c4", 8 / 3)], fn="morse.wav",
+         bpm=300, pause=0, silent=True)
 
-# 2. Define a function that takes in a message and converts that message into musical morse code. Each dot should be a C for an eighth note, and each dash should be a C for a half note. Rest for a half note inbetween each word and an eighth note between each dot or dash.
+# Use the same dictionary for all letters and build a reverse dictionary.

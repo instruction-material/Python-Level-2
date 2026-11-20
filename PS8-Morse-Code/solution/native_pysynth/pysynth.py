@@ -26,9 +26,7 @@
 
 import sys
 
-assert (
-    sys.version >= '3.3'
-), "This program does not work with older versions of Python.\
+assert sys.version_info >= (3, 3), "This program does not work with older versions of Python.\
  Please install Python 3.3 or later."
 
 ##########################################################################
@@ -37,9 +35,9 @@ assert (
 
 pitchhz, keynum = {}, {}
 
-keys_s = ('a', 'a#', 'b', 'c', 'c#', 'd', 'd#', 'e', 'f', 'f#', 'g', 'g#')
-keys_f = ('a', 'bb', 'b', 'c', 'db', 'd', 'eb', 'e', 'f', 'gb', 'g', 'ab')
-keys_e = ('a', 'bb', 'cb', 'b#', 'db', 'd', 'eb', 'fb', 'e#', 'gb', 'g', 'ab')
+keys_s = ("a", "a#", "b", "c", "c#", "d", "d#", "e", "f", "f#", "g", "g#")
+keys_f = ("a", "bb", "b", "c", "db", "d", "eb", "e", "f", "gb", "g", "ab")
+keys_e = ("a", "bb", "cb", "b#", "db", "d", "eb", "fb", "e#", "gb", "g", "ab")
 
 
 def getfreq(pr=False):
@@ -49,15 +47,15 @@ def getfreq(pr=False):
     for k in range(88):
         freq = 27.5 * 2.0 ** (k / 12.0)
         oct = (k + 9) // 12
-        note = '%s%u' % (keys_s[k % 12], oct)
+        note = "%s%u" % (keys_s[k % 12], oct)
         if pr:
             print("%10u\t%15s\t%14.2f" % (k + 1, note.upper(), freq))
         pitchhz[note] = freq
         keynum[note] = k
-        note = '%s%u' % (keys_f[k % 12], oct)
+        note = "%s%u" % (keys_f[k % 12], oct)
         pitchhz[note] = freq
         keynum[note] = k
-        note = '%s%u' % (keys_e[k % 12], oct)
+        note = "%s%u" % (keys_e[k % 12], oct)
         pitchhz[note] = freq
         keynum[note] = k
     return pitchhz, keynum
@@ -114,13 +112,13 @@ import wave, math, struct
 
 
 def mix_files(a, b, c, chann=2, phase=-1.0):
-    f1 = wave.open(a, 'r')
-    f2 = wave.open(b, 'r')
-    f3 = wave.open(c, 'w')
+    f1 = wave.open(a, "r")
+    f2 = wave.open(b, "r")
+    f3 = wave.open(c, "w")
     f3.setnchannels(chann)
     f3.setsampwidth(2)
     f3.setframerate(44100)
-    f3.setcomptype('NONE', 'Not Compressed')
+    f3.setcomptype("NONE", "Not Compressed")
     frames = min(f1.getnframes(), f2.getnframes())
 
     print("Mixing files, total length %.2f s..." % (frames / 44100.0))
@@ -128,30 +126,30 @@ def mix_files(a, b, c, chann=2, phase=-1.0):
     d2 = f2.readframes(frames)
     for n in range(frames):
         if not n % (5 * 44100):
-            print(n // 44100, 's')
+            print(n // 44100, "s")
         if chann < 2:
             d3 = struct.pack(
-                'h',
+                "h",
                 int(
                     0.5
                     * (
-                        struct.unpack('h', d1[2 * n : 2 * n + 2])[0]
-                        + struct.unpack('h', d2[2 * n : 2 * n + 2])[0]
+                        struct.unpack("h", d1[2 * n : 2 * n + 2])[0]
+                        + struct.unpack("h", d2[2 * n : 2 * n + 2])[0]
                     )
                 ),
             )
         else:
             d3 = struct.pack(
-                'h',
+                "h",
                 int(
-                    phase * 0.3 * struct.unpack('h', d1[2 * n : 2 * n + 2])[0]
-                    + 0.7 * struct.unpack('h', d2[2 * n : 2 * n + 2])[0]
+                    phase * 0.3 * struct.unpack("h", d1[2 * n : 2 * n + 2])[0]
+                    + 0.7 * struct.unpack("h", d2[2 * n : 2 * n + 2])[0]
                 ),
             ) + struct.pack(
-                'h',
+                "h",
                 int(
-                    0.7 * struct.unpack('h', d1[2 * n : 2 * n + 2])[0]
-                    + phase * 0.3 * struct.unpack('h', d2[2 * n : 2 * n + 2])[0]
+                    0.7 * struct.unpack("h", d1[2 * n : 2 * n + 2])[0]
+                    + phase * 0.3 * struct.unpack("h", d2[2 * n : 2 * n + 2])[0]
                 ),
             )
         f3.writeframesraw(d3)
@@ -168,12 +166,12 @@ def make_wav(
     fn="out.wav",
     silent=False,
 ):
-    f = wave.open(fn, 'w')
+    f = wave.open(fn, "w")
 
     f.setnchannels(1)
     f.setsampwidth(2)
     f.setframerate(44100)
-    f.setcomptype('NONE', 'Not Compressed')
+    f.setcomptype("NONE", "Not Compressed")
 
     bpmfac = 120.0 / bpm
 
@@ -186,7 +184,7 @@ def make_wav(
         return [a, round(b)]
 
     def sixteenbit(x):
-        return struct.pack('h', round(32000 * x))
+        return struct.pack("h", round(32000 * x))
 
     def asin(x):
         return math.sin(2.0 * math.pi * x)
@@ -194,7 +192,7 @@ def make_wav(
     def render2(a, b, vol):
         b2 = (1.0 - pause) * b
         l = waves2(a, b2)
-        ow = b''
+        ow = b""
         q = int(l[0] * l[1])
 
         # harmonics are frequency-dependent:
@@ -246,8 +244,8 @@ def make_wav(
         for nn, x in enumerate(song):
             if not nn % 4 and silent == False:
                 print("[%u/%u]\t" % (nn + 1, len(song)))
-            if x[0] != 'r':
-                if x[0][-1] == '*':
+            if x[0] != "r":
+                if x[0][-1] == "*":
                     vol = boost
                     note = x[0][:-1]
                 else:
@@ -256,7 +254,7 @@ def make_wav(
                 try:
                     a = pitchhz[note]
                 except:
-                    a = pitchhz[note + '4']  # default to fourth octave
+                    a = pitchhz[note + "4"]  # default to fourth octave
                 a = a * 2**transpose
                 if x[1] < 0:
                     b = length(-2.0 * x[1] / 3.0)
@@ -265,12 +263,12 @@ def make_wav(
                 ex_pos = ex_pos + b
                 curpos = curpos + render2(a, b, vol)
 
-            if x[0] == 'r':
+            if x[0] == "r":
                 b = length(x[1])
                 ex_pos = ex_pos + b
                 f.writeframesraw(sixteenbit(0) * int(b))
                 curpos = curpos + int(b)
 
-    f.writeframes(b'')
+    f.writeframes(b"")
     f.close()
     print()

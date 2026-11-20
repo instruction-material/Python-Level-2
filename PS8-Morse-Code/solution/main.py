@@ -1,10 +1,12 @@
-import pysynth
+import sys
 
-# Reminder for using psynth:
-# 1) You can see the project files by clicking the file icon on the sidebar to the left!
-# 2) Do not click on the wav file until the program is finished running (i.e. once you see the blue Run button again instead of the red Stop button)
+if sys.platform == "emscripten":
+    from pysynth import make_wav
+else:
+    from native_pysynth import make_wav
 
-morse_dict = {
+
+MORSE = {
     "a": ".-",
     "b": "-...",
     "c": "-.-.",
@@ -33,45 +35,67 @@ morse_dict = {
     "z": "--..",
 }
 
-# 1. Define a function that takes in a message and converts that message into morse code. (Make sure to put extra spaces inbetween your words.) Using the function, ask the user for a message and print out the translated message.
+def encode(text):
+    words = text.lower().split()
+    if not words or any(letter not in MORSE for word in words for letter in word):
+        raise ValueError("Use letters A to Z and spaces.")
+    return " / ".join(" ".join(MORSE[letter] for letter in word) for word in words)
 
 
-def translate_to_morse_code(msg):
-    morse_msg = ""
-    for letter in msg:
-        if letter == " ":
-            morse_msg += "  "
+def decode(code):
+    reverse = {symbols: letter for letter, symbols in MORSE.items()}
+    words = [word.split() for word in code.split("/")]
+    if any(not word or any(token not in reverse for token in word) for word in words):
+        raise ValueError("Use known dot-and-dash groups separated by spaces and slashes.")
+    return " ".join("".join(reverse[token] for token in word) for word in words).upper()
+
+
+def rhythm(code):
+    notes = []
+    for word_index, word in enumerate(code.split("/")):
+        if word_index:
+            notes.append(("r", 7))
+        for letter_index, letter in enumerate(word.split()):
+            if letter_index:
+                notes.append(("r", 3))
+            for symbol_index, symbol in enumerate(letter):
+                if symbol_index:
+                    notes.append(("r", 1))
+                notes.append(("c4", 1 if symbol == "." else 3))
+    return notes
+
+
+def main():
+    try:
+        choice = input("e to encode or d to decode: ").strip().lower()
+        if choice == "e":
+            code = encode(input("Text: "))
+            text = decode(code)
+        elif choice == "d":
+            text = decode(input("Morse: "))
+            code = encode(text)
         else:
-            morse_msg += morse_dict[letter] + " "
-    return morse_msg
+            print("Choose e or d.")
+            return
+    except EOFError:
+        print("Translation ended.")
+        return
+    except ValueError as error:
+        print(error)
+        return
+
+    print(f"Text: {text}")
+    print(f"Morse: {code}")
+    notes = rhythm(code)
+    units = sum(duration for _, duration in notes)
+    print(f"Audio units: {units}")
+    if units <= 100:
+        make_wav([(pitch, 8 / units) for pitch, units in notes],
+                 fn="morse.wav", bpm=300, pause=0, silent=True)
+        print("Wrote morse.wav.")
+    else:
+        print("Use a shorter message to render audio.")
 
 
-msg = input(
-    "Type in a message to translate into morse code (in all lowercase): "
-)
-print(translate_to_morse_code(msg))
-
-# 2. Define a function that takes in a message and converts that message into musical morse code. Each dot should be a C for an eighth note, and each dash should be a C for a half note. Rest for a half note inbetween each word and an eighth note between each dot or dash.
-
-
-def translate_to_morse_code_music(msg):
-    song = []
-    for letter in msg:
-        if letter == " ":
-            song.append(("r", 2))
-        else:
-            morse_char = morse_dict[letter]
-            for char in morse_char:
-                if char == ".":
-                    song.append(("c", 8))
-                elif char == "-":
-                    song.append(("c", 2))
-                song.append(("r", 8))
-
-    return song
-
-
-msg = input(
-    "Type in a message to translate into morse code music (in all lowercase): "
-)
-pysynth.make_wav(translate_to_morse_code_music(msg), fn="morseSong.wav")
+if __name__ == "__main__":
+    main()
