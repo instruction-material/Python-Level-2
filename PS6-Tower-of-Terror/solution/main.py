@@ -1,21 +1,23 @@
 def get_weights():
-    riders = []
-    for i in range(10):
-        weight = input(
-            "Enter rider " + str(i + 1) + "'s weight (or q to quit): "
-        )
-        if weight == "q":
+    weights = []
+    while len(weights) < 10:
+        entry = input(f"Fictional rider {len(weights) + 1} weight or q: ").strip().lower()
+        if entry == "q":
             break
-        riders.append(int(weight))
-    return riders
+        if entry.isascii() and entry.isdecimal() and int(entry) > 0:
+            weights.append(int(entry))
+        else:
+            print("Enter a positive whole number or q.")
+    return weights
 
 
-riders = get_weights()
-print("The list of rider weights is:")
-print(riders)
-
-sum = 0
-for r in riders:
-    sum += r
-print("The total weight of the riders is: " + str(sum))
-print("The average weight of the riders is: " + str(sum / len(riders)))
+weights = get_weights()
+total = 0
+for weight in weights:
+    total += weight
+print(f"Recorded weights: {weights}")
+print(f"Total: {total}")
+if weights:
+    print(f"Average: {total / len(weights):g}")
+else:
+    print("Average unavailable. No weights recorded.")

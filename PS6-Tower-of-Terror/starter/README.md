@@ -1,5 +1,3 @@
-# PS6 Tower of Terror starter
+# Tower of Terror starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+This calculations exercise uses fictional rider weights. Start with one positive whole-number entry. Add a loop for at most ten valid entries, with q to finish early. Replace an invalid entry without advancing the count. Print the list, the total, and the arithmetic mean. Inputs 80, 120, and q give a total of 200 and a mean of 100. If q is the first response, print that the mean is unavailable.

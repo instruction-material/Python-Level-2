@@ -58,6 +58,8 @@ print(sum_list(factorials))
 
 
 def find_max_num(x):
+    if not x:
+        raise ValueError("A maximum requires at least one number.")
     max_num = x[0]
     for num in x:
         if num > max_num:

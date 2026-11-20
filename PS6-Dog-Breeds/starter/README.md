@@ -1,5 +1,3 @@
-# PS6 Dog Breeds starter
+# Dog Breeds starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+The starter prints the first breed in a seven-item list. Loop through all seven breed names. For each one, print the name, its first character, and its length. Beagle starts with b and has six letters. Greyhound starts with g and has nine. Pug starts with p and has three.

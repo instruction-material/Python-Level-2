@@ -1,5 +1,4 @@
 import random
-import time
 
 
 def create_deck():
@@ -21,21 +20,13 @@ def shuffle(num_shuffles):
         deck[index1] = deck[index2]
         deck[index2] = temp
 
-    print("\nShuffled deck after " + str(num_shuffles) + " swaps: ")
-    print(deck)
+
+    return deck
 
 
-print("Sorted deck: ")
+print("Sorted deck:")
 print(create_deck())
-time.sleep(2)
 
-shuffle(10)
-time.sleep(3)
-
-shuffle(50)
-time.sleep(3)
-
-shuffle(100)
-time.sleep(3)
-
-shuffle(500)
+for swaps in (10, 50, 100, 500):
+    print(f"Shuffled deck after {swaps} swaps:")
+    print(shuffle(swaps))
