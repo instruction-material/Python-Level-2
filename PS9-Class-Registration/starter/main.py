@@ -11,7 +11,7 @@ biology = [
     "Esther",
 ]
 
-computerScience = [
+computer_science = [
     "Sarah",
     "John",
     "Fred",
@@ -35,3 +35,13 @@ english = [
     "Jean-Baptiste",
     "William",
 ]
+
+
+rosters = {
+    "Biology": biology,
+    "Computer Science": computer_science,
+    "English": english,
+}
+
+for class_name, roster in rosters.items():
+    print(f"{class_name}: {len(roster)} registrations before removing duplicates.")

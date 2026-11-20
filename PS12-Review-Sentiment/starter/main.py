@@ -1,4 +1,4 @@
-posWords = [
+positive_words = {
     "good",
     "great",
     "excellent",
@@ -10,9 +10,9 @@ posWords = [
     "happy",
     "positive",
     "cool",
-]
+}
 
-negWords = [
+negative_words = {
     "bad",
     "mediocre",
     "poor",
@@ -24,4 +24,6 @@ negWords = [
     "inferior",
     "lame",
     "disappointing",
-]
+}
+
+print(f"Loaded {len(positive_words)} positive and {len(negative_words)} negative words.")

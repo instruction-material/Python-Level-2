@@ -1,38 +1,35 @@
 import random
 
-# read in states
-f = open("states.txt")
-data = f.readlines()
-states = [line.strip() for line in data]
-f.close()
 
-# read in capitals
-f = open("capitals.txt")
-data = f.readlines()
-capitals = [line.strip() for line in data]
-f.close()
+def read_names(filename):
+    with open(filename, encoding="utf-8") as source:
+        return [line.strip() for line in source]
 
-# construct dictionary of state-capital pairs
-d = {}
-for i in range(len(states)):
-    d[states[i]] = capitals[i]
 
-# ask the user for random capitals until they answer incorrectly
+states = read_names("states.txt")
+capitals = read_names("capitals.txt")
 
+if (
+    not states or len(states) != len(capitals)
+    or not all(states) or not all(capitals)
+    or len(set(states)) != len(states)
+):
+    raise ValueError("The files must contain one capital per distinct state.")
+
+answers = dict(zip(states, capitals))
 score = 0
 
 while True:
-    rand_ind = random.randint(0, len(states) - 1)
-    state = states[rand_ind]
-
-    guess = input("What is the capital of " + state + "? ")
-
-    if guess == d[state]:
-        print("Correct!")
-        score += 1
-
-    else:
-        print("Incorrect! Game over :(")
+    state = random.choice(states)
+    try:
+        guess = input(f"What is the capital of {state}? ")
+    except EOFError:
+        break
+    if guess.strip().casefold() != answers[state].casefold():
+        print(f"Incorrect. The capital of {state} is {answers[state]}.")
         break
 
-print("Your total score was: " + str(score))
+    print("Correct!")
+    score += 1
+
+print(f"Final score: {score}")
