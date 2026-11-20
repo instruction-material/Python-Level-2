@@ -1,5 +1,3 @@
-# PS5 Squawka Zilly Floog starter
+# Squawka Zilly Floog starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Run the starter to verify zilly(4) equals 9. Define floog(x) as x squared minus 6 times x plus 12. Define squawka(x) as twice zilly(x) plus three times floog(x), using calls to both helpers. At x = 4, the three outputs are 9, 4, and 30. At x = 0, verify 1, 12, and 38.

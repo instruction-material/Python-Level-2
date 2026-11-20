@@ -1,5 +1,3 @@
-# PS5 Parameter Tracing starter
+# Parameter Tracing starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Predict the result of each call before printing it. Map the arguments by position, trace the local names, and record the return. Run the starter to check the first answer. Enable one print at a time for the remaining six calls. Compare the result of function2(2, 3, 4) with the final call when x equals 1. The reversed parameter names in function2 matter when it passes the values to function1.

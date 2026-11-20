@@ -1,5 +1,3 @@
-# PS5 Juni Latin starter
+# Word Translator starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Use a single word made of letters. Move its first character to the end and append ay. Cat becomes atCay if the original starts with a capital C. The one-letter word a becomes aay. Return the translated result from the function. For an empty entry or two words, display a message instead of indexing the input.

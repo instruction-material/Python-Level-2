@@ -18,5 +18,6 @@ for i in range(0, num_flips):
         num_heads += 1
     else:
         num_tails += 1
+print(f"Heads: {num_heads}, tails: {num_tails}")
 print(str((num_heads / num_flips) * 100) + "% of your flips were heads.")
 print(str((num_tails / num_flips) * 100) + "% of your flips were tails.")

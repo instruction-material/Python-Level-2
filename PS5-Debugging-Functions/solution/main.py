@@ -9,7 +9,7 @@ def print_welcome():
 
 # Get my secret number between 1 and 100!
 def get_random_number():
-    return random.randint(0, 100)
+    return random.randint(1, 100)
 
 
 # Ask the user to guess my secret number
@@ -61,14 +61,3 @@ def play_game():
 
 
 play_game()
-
-# Bonus: Allow the user type in Y or N at the end of each game to decide whether or not to play again.
-
-"""
-keepPlaying = True
-while keepPlaying:
-  playGame()
-  userAnswer = input("Would you like to play again? (Y/N): ')
-  if userAnswer == 'N':
-    keepPlaying = False
-"""

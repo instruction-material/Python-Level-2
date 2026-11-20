@@ -13,27 +13,27 @@ def function2(c, b, a):
 
 
 answer1 = function1(1, 2, 3)
-# print(answer1)
+print(f"Trace 1: {answer1}")
 
 answer2 = function1(-2, 4, 1)
-# print(answer2)
+print(f"Trace 2: {answer2}")
 
 a = 1
 b = 2
 c = 3
 
 answer3 = function1(c, b, a)
-# print(answer3)
+print(f"Trace 3: {answer3}")
 
 answer4 = function1(a, 2, a)
-# print(answer4)
+print(f"Trace 4: {answer4}")
 
 answer5 = function1(c, c, c)
-# print(answer5)
+print(f"Trace 5: {answer5}")
 
 answer6 = function2(2, 3, 4)
-# print(answer6)
+print(f"Trace 6: {answer6}")
 
 x = 1
 answer7 = function2(x + 1, x + 2, x + 3)
-# print(answer7)
+print(f"Trace 7: {answer7}")

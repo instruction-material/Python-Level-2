@@ -15,6 +15,8 @@ def average(x, y):
 
 
 def factorial(n):
+    if n < 0:
+        raise ValueError("Factorial requires a nonnegative integer.")
     answer = 1
     for i in range(1, n + 1):
         answer *= i
@@ -22,6 +24,8 @@ def factorial(n):
 
 
 def exponent(b, p):
+    if p < 0:
+        raise ValueError("Use a nonnegative exponent in this exercise.")
     answer = 1
     for i in range(0, p):
         answer *= b

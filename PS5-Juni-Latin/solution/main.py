@@ -1,13 +1,12 @@
 def translate(word):
-    new_word = ""
-
-    for i in range(1, len(word)):
-        new_word += word[i]
-
-    new_word += word[0] + "ay"
-
-    return new_word
+    if not word.isalpha():
+        return ""
+    return word[1:] + word[0] + "ay"
 
 
-word = input("Enter a word to translate into Juni Latin: ")
-print("The word " + word + " in Juni Latin is " + translate(word))
+word = input("One word: ").strip()
+translation = translate(word)
+if translation:
+    print(f"{word} becomes {translation}.")
+else:
+    print("Enter one word made of letters.")
