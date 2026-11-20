@@ -1,35 +1,15 @@
-user1 = input("Player 1, please pick rock, paper, or scissors: ")
-user2 = input("Player 2, please pick rock, paper, or scissors: ")
+move1 = input("Player 1 move: ").strip().lower()
+move2 = input("Player 2 move: ").strip().lower()
 
-if user1 == "rock":
-    if user2 == "rock":
-        print("Tie!")
-    elif user2 == "paper":
-        print("Player 2 wins!")
-    elif user2 == "scissors":
-        print("Player 1 wins!")
-    else:
-        print("Player 2 did not pick rock, paper, or scissors. Player 1 wins!")
-
-elif user1 == "paper":
-    if user2 == "rock":
-        print("Player 1 wins!")
-    elif user2 == "paper":
-        print("Tie!")
-    elif user2 == "scissors":
-        print("Player 2 wins!")
-    else:
-        print("Player 2 did not pick rock, paper, or scissors. Player 1 wins!")
-
-elif user1 == "scissors":
-    if user2 == "rock":
-        print("Player 2 wins!")
-    elif user2 == "paper":
-        print("Player 1 wins!")
-    elif user2 == "scissors":
-        print("Tie!")
-    else:
-        print("Player 2 did not pick rock, paper, or scissors. Player 1 wins!")
-
+if move1 not in ("rock", "paper", "scissors") or move2 not in ("rock", "paper", "scissors"):
+    print("Each move must be rock, paper, or scissors.")
+elif move1 == move2:
+    print("Tie!")
+elif (
+    (move1 == "rock" and move2 == "scissors")
+    or (move1 == "scissors" and move2 == "paper")
+    or (move1 == "paper" and move2 == "rock")
+):
+    print("Player 1 wins!")
 else:
-    print("Player 1 did not pick rock, paper, or scissors. Player 2 wins!")
+    print("Player 2 wins!")

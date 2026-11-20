@@ -1,21 +1,17 @@
-sum = 0
-num_students = 5
+total = 0
+lowest = 100
+highest = 0
+for student in range(1, 6):
+    entry = input(f"Score {student}: ").strip()
+    while not (entry.isascii() and entry.isdecimal() and int(entry) <= 100):
+        entry = input("Enter a whole-number score from 0 to 100: ").strip()
+    score = int(entry)
+    total += score
+    if score < lowest:
+        lowest = score
+    if score > highest:
+        highest = score
 
-min_score = 100
-max_score = 0
-sum = 0
-
-for i in range(num_students):
-    score = int(input("Enter student " + str(i + 1) + "'s score: "))
-
-    sum += score
-
-    if score < min_score:
-        min_score = score
-    if score > max_score:
-        max_score = score
-
-average = sum / num_students
-print("The highest score was: " + str(max_score))
-print("The lowest score was: " + str(min_score))
-print("The class average was: " + str(average))
+print(f"Highest: {highest}")
+print(f"Lowest: {lowest}")
+print(f"Average: {total / 5}")

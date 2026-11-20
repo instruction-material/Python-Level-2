@@ -1,22 +1,21 @@
-card = input("Enter a credit card number: ")
+sample = input("Fictional digit string: ").strip()
 
-sum_digits = 0
-for i in range(0, len(card)):
-    sum_digits += int(card[i])
-print("The sum of the digits is " + str(sum_digits))
-
-sum_digits = 0
-for i in range(0, len(card)):
-    if i % 2 == 0:
-        sum_digits += int(card[i]) * 2
-    else:
-        sum_digits += int(card[i])
-print(
-    "The sum of the digits, with every other digit multipled by 2, is "
-    + str(sum_digits)
-)
-
-if sum_digits % 10 == 0:
-    print("Valid card!")
+if len(sample) < 2 or not sample.isascii() or not sample.isdigit():
+    print("Enter at least two ASCII digits.")
 else:
-    print("Invalid card!")
+    total = 0
+    double_digit = False
+    for character in sample[::-1]:
+        digit = int(character)
+        if double_digit:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        total += digit
+        double_digit = not double_digit
+
+    print(f"Checksum total: {total}")
+    if total % 10 == 0:
+        print("Checksum passes.")
+    else:
+        print("Checksum fails.")

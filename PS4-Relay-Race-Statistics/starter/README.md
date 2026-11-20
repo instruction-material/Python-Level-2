@@ -1,5 +1,3 @@
-# PS4 Relay Race Statistics starter
+# Relay Race Statistics starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Enter four times in seconds. The starter calculates the average and compares runner 1 with it. Add the comparison for each of the other three runners. For 50, 60, 55, 55, expect an average of 55, with one faster, one slower, and two at the average. A lower time is faster. The reference also reports the fastest runner or a tie.

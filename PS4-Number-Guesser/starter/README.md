@@ -1,5 +1,3 @@
-# PS4 Number Guesser starter
+# Number Guesser starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Start with the fixed target of 27 and observe one guess. Add a loop that keeps asking until the target is reached and keeps a count of accepted numeric guesses. With input 20, 30, 27, expect too low, too high, then success in three tries. Use random.randint(1, 50) once before the loop after the fixed-target tests pass.
