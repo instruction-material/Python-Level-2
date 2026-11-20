@@ -1,5 +1,5 @@
-# PS9 Sets Practice starter
+# Sets Practice starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
+Run the starter to see how duplicate values collapse. With {1, 2, 3, 4, 5} and {4, 5, 6, 7, 8}, the union contains 1 through 8 and the intersection is {4, 5}. Repeat with two randomly chosen sets of five distinct integers from 1 through 10. Report whether the second set includes 1. Find unique letters in two words without treating case or punctuation as separate letters.
 
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Banana and Band share a, b, and n. Create separate functions that return only even numbers and only words with three letters. Keep the supplied sets intact.

@@ -1,5 +1,3 @@
-# PS7 Dictionaries Practice starter
+# Dictionaries Practice starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Run the starter to see a five-word glossary and a lookup for cake. Build dictionaries that map 1 through 25 to their squares and factorials. Check that the square for 25 is 625 and the factorial for 5 is 120. Count letters in a word by adding to the count for each key. For Banana, use lowercase and expect a: 3, b: 1, n: 2. Ignore punctuation and spaces.

@@ -1,29 +1,34 @@
-num_students = int(input("Enter the number of students: "))
-num_tests = int(input("Enter the number of tests each student took: "))
+def read_count(prompt):
+    while True:
+        entry = input(prompt).strip()
+        if entry.isascii() and entry.isdecimal():
+            return int(entry)
+        print("Enter a nonnegative whole number.")
 
-test_scores = {}
 
-# ask the user to enter each student's name
-for i in range(num_students):
-    name = input("Enter student " + str(1 + i) + "'s name: ")
-    test_scores[name] = []
+student_count = read_count("Number of names: ")
+test_count = read_count("Number of tests: ")
+scores = {}
+while len(scores) < student_count:
+    name = input("Fictional name: ").strip().lower()
+    if name and name not in scores:
+        scores[name] = []
+    else:
+        print("Enter a new, nonempty name.")
 
-# ask the user to enter each test score
-for i in range(num_tests):
-    for name in test_scores:
-        score = int(
-            input("Enter " + name + "'s score on test " + str(i + 1) + ": ")
-        )
-        test_scores[name].append(score)
+for test in range(1, test_count + 1):
+    for name, results in scores.items():
+        score = read_count(f"Score for {name} on test {test}: ")
+        while score > 100:
+            print("Use a score from 0 through 100.")
+            score = read_count(f"Score for {name} on test {test}: ")
+        results.append(score)
 
-print(test_scores)
-
-# calculate each student's average exam score
-averages = {}
-for name in test_scores:
-    sum = 0
-    for score in test_scores[name]:
-        sum += score
-    averages[name] = sum / len(test_scores[name])
-
-print(averages)
+if not scores:
+    print("No names entered.")
+for name, results in scores.items():
+    print(f"{name} scores: {results}")
+    if results:
+        print(f"{name} average: {sum(results) / len(results):g}")
+    else:
+        print(f"{name}: No scores.")

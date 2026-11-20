@@ -1,28 +1,18 @@
-student_foods = set()
-instructor_foods = set()
+def read_foods(group):
+    foods = set()
+    for index in range(1, 6):
+        food = input(f"{group} food {index} of 5: ").strip().lower()
+        while not food:
+            food = input("Enter a food name: ").strip().lower()
+        foods.add(food)
+    return foods
 
-print("Student, enter five of your favorite foods.")
-for i in range(5):
-    student_foods.add(input("Food " + str(i + 1) + ": "))
 
-print("Instructor, enter five of your favorite foods.")
-for i in range(5):
-    instructor_foods.add(input("Food " + str(i + 1) + ": "))
-
-shared = student_foods.intersection(instructor_foods)
-
-if len(shared) == 0:
-    print("You like completely different foods!")
-else:
-    print("You both share these top foods: " + str(shared))
-
-# Challenge
-print("Here are the foods that only the student likes:")
-for food in student_foods:
-    if food not in instructor_foods:
-        print(food)
-
-print("Here are the foods that only the instructor likes:")
-for food in instructor_foods:
-    if not food in student_foods:
-        print(food)
+group_a = read_foods("Group A")
+group_b = read_foods("Group B")
+shared = group_a.intersection(group_b)
+only_a = group_a.difference(group_b)
+only_b = group_b.difference(group_a)
+print(f"Shared: {', '.join(sorted(shared)) or 'none'}")
+print(f"Only Group A: {', '.join(sorted(only_a)) or 'none'}")
+print(f"Only Group B: {', '.join(sorted(only_b)) or 'none'}")

@@ -1,77 +1,42 @@
 import random
 
-# Create two sets. In each set, add 5 different random numbers between 1 and 10. Then, print out these two sets, the union of these two sets, and the intersection of these two sets.
 
-a = set()
-b = set()
-
-while len(a) < 5:
-    a.add(random.randint(1, 10))
-
-while len(b) < 5:
-    b.add(random.randint(1, 10))
-
-print(a)
-print(b)
-print(a.union(b))
-print(a.intersection(b))
-
-# For your second random set, either print out "The number 1 is inside the second set" or "The number 1 is not inside the second set"
-
-if 1 in b:
-    print("The number 1 is inside the second set")
-else:
-    print("The number 1 is not inside the second set")
-
-# Ask the user for a word. Then, use a set to print out all of the unique letters in the word and the number of unique letters in the word.
-
-word = input("Give me a word: ")
-letters = set()
-for letter in word:
-    letters.add(letter)
-print(letters)
-print("This word has " + str(len(letters)) + " unique letters")
-
-# Ask the user for another word. Print out the letters these two word have in common.
-
-word2 = input("Give me another word: ")
-letters2 = set()
-for letter in word2:
-    letters2.add(letter)
-
-print(letters.intersection(letters2))
-
-# Write a function that takes in a set of numbers and returns a set with only the even numbers from that set.
+def letters(text):
+    result = set()
+    for character in text.lower():
+        if character.isalpha():
+            result.add(character)
+    return result
 
 
-def get_evens(s):
-    new_set = set()
-    for num in s:
-        if num % 2 == 0:
-            new_set.add(num)
-    return new_set
+def get_evens(numbers):
+    result = set()
+    for number in numbers:
+        if number % 2 == 0:
+            result.add(number)
+    return result
 
 
-s = set()
-s.add(1)
-s.add(2)
-s.add(3)
-s.add(4)
-print(get_evens(s))
-
-# Write a function that takes in a set of words and returns a set with only the words that have 3 letters in them.
-
-
-def get_three_letter_words(s):
-    new_set = set()
-    for word in s:
+def get_three_letter_words(words):
+    result = set()
+    for word in words:
         if len(word) == 3:
-            new_set.add(word)
-    return new_set
+            result.add(word)
+    return result
 
 
-s = set()
-s.add("cat")
-s.add("bat")
-s.add("house")
-print(get_three_letter_words(s))
+first = set(random.sample(range(1, 11), 5))
+second = set(random.sample(range(1, 11), 5))
+print(f"First set: {sorted(first)}")
+print(f"Second set: {sorted(second)}")
+print(f"Union: {sorted(first.union(second))}")
+print(f"Intersection: {sorted(first.intersection(second))}")
+print(f"Second set includes 1: {1 in second}")
+
+first_letters = letters(input("First word: "))
+second_letters = letters(input("Second word: "))
+print(f"Unique first letters: {', '.join(sorted(first_letters)) or 'none'}")
+print(f"Unique first letter count: {len(first_letters)}")
+print(f"Shared letters: {', '.join(sorted(first_letters & second_letters)) or 'none'}")
+print(f"Even numbers: {sorted(get_evens({1, 2, 3, 4}))}")
+print(f"Three-letter words: {', '.join(sorted(get_three_letter_words({'cat', 'bat', 'house'})))}")

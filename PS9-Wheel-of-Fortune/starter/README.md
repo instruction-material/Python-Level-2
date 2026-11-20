@@ -1,5 +1,5 @@
-# PS9 Wheel of Fortune starter
+# Letter Puzzle starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
+The starter reveals all copies of one guessed letter in the sample word programming. Extend it into a complete console puzzle. Use a set for all unique target letters and a set for guesses already entered. Accept one ASCII letter at a time and normalize uppercase. Invalid and repeated entries do not consume a guess. Each new valid guess uses one of the fifteen attempts.
 
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Guessing r reveals both r positions. The distinct guesses p, r, o, g, a, m, i, n reveal the whole word in eight attempts. End with the visible word and a win message, or disclose the word after all fifteen valid attempts are used.

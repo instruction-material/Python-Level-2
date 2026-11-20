@@ -1,56 +1,24 @@
-biology = [
-    "Sarah",
-    "Ahmed",
-    "Fred",
-    "Gillian",
-    "Shradah",
-    "Max",
-    "Max",
-    "Sara",
-    "Max",
-    "Esther",
-]
-
-computer_science = [
-    "Sarah",
-    "John",
-    "Fred",
-    "Gillian",
-    "Jermaine",
-    "Max",
-    "Sara",
-    "Juan",
-    "Esther",
-]
-
-english = [
-    "Nico",
-    "Sharjeel",
-    "Isabella",
-    "Taylor",
-    "Ali",
-    "Ali",
-    "Jean-Baptiste",
-    "Jean-Baptiste",
-    "Jean-Baptiste",
-    "William",
-]
+def register(signups, capacity):
+    seen = set()
+    enrolled = []
+    waiting = []
+    for name in signups:
+        if name in seen:
+            continue
+        seen.add(name)
+        if len(enrolled) < capacity:
+            enrolled.append(name)
+        else:
+            waiting.append(name)
+    return enrolled, waiting
 
 
-def generate_waitlist(students):
-    enrolled = set()
-    waitlist = set()
-    for name in students:
-        if len(enrolled) < 6:
-            enrolled.add(name)
-        elif name not in enrolled:
-            waitlist.add(name)
-    return waitlist
-
-
-print("Waitlisted for Biology: " + str(generate_waitlist(biology)))
-print(
-    "Waitlisted for Computer Science: "
-    + str(generate_waitlist(computer_science))
-)
-print("Waitlisted for English: " + str(generate_waitlist(english)))
+rosters = {
+    "Design": ["Ari", "Ari", "Bea", "Cleo", "Dara", "Eli", "Fay", "Gus", "Gus", "Hana"],
+    "Computing": ["Ira", "Jai", "Kit", "Lee", "Mo", "Nia", "Nia"],
+    "Studio": ["Paz", "Quin", "Rey", "Paz"],
+}
+for course, signups in rosters.items():
+    enrolled, waiting = register(signups, 6)
+    print(f"{course} enrolled: {', '.join(enrolled) or 'none'}")
+    print(f"{course} waiting: {', '.join(waiting) or 'none'}")

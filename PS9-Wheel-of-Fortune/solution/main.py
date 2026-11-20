@@ -1,49 +1,30 @@
-correct_word = "programming"
-guessed_letters = set()
-num_guesses_remaining = 15
+target = "programming"
+target_letters = set(target)
+attempts = set()
+remaining = 15
 
-# fill up set with the correct letters
-# Pythonic shortcut: correctLetters = set(correctWord)
-correct_letters = set()
-for letter in correct_word:
-    correct_letters.add(letter)
 
-print(
-    "Welcome to the Wheel of Fortune! You have "
-    + str(num_guesses_remaining)
-    + " guesses to figure out the correct word. Good luck!"
-)
+def reveal(word, guesses):
+    visible = []
+    for letter in word:
+        visible.append(letter if letter in guesses else "_")
+    return " ".join(visible)
 
-# alternatively, could use while numGuessesRemaining > 0
-while True:
-    # print out the current state of the guessed word
-    current_state = ""
-    for letter in correct_word:
-        if letter in guessed_letters:
-            current_state += letter + " "
-        else:
-            current_state += "_ "
-    print(current_state)
-    print("")
 
-    # ask for a guess
-    guessed_letter = input(
-        "Guess a letter! You have "
-        + str(num_guesses_remaining)
-        + " guesses remaining."
-    )
-    num_guesses_remaining -= 1
-
-    # add the guessed letter to the set if it's a correct letter
-    if guessed_letter in correct_letters:
-        guessed_letters.add(guessed_letter)
-
-    # check if all of the letters have been guessed
-    if len(guessed_letters) == len(correct_letters):
-        print("Congratulations, you win!")
+while remaining > 0:
+    print(reveal(target, attempts))
+    guess = input(f"Guess a letter ({remaining} remaining): ").strip().lower()
+    if len(guess) != 1 or not guess.isascii() or not guess.isalpha():
+        print("Enter one letter from A to Z.")
+        continue
+    if guess in attempts:
+        print("That letter has already been guessed.")
+        continue
+    attempts.add(guess)
+    remaining -= 1
+    if target_letters.issubset(attempts):
+        print(reveal(target, attempts))
+        print(f"Puzzle solved in {15 - remaining} guesses!")
         break
-
-    # check if the player is out of guesses
-    if num_guesses_remaining == 0:
-        print("Sorry, you're out of guesses!")
-        break
+else:
+    print(f"No guesses remain. The word was {target}.")
