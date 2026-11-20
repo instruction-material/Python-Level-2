@@ -2,9 +2,7 @@
 
 Canonical source repository: `Python-Level-2`
 
-This project was migrated from the legacy direct-source layout on 2026-05-14. The original files are preserved under `solution/` as the current solution/reference snapshot.
+- `starter/main.py` checks a sample login and displays the account's balance.
+- `solution/main.py` adds a complete transaction menu and sample phrase changes. Use ari with demo-ari or bea with demo-bea.
 
-## Structure
-
-- `solution/` contains the migrated source files.
-- `starter/` is present to keep the course wrapper shape consistent; add a distinct starter snapshot there when one is available.
+The exercise uses fictional accounts stored in memory. Restarting resets account data.

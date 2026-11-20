@@ -1,81 +1,72 @@
-def add(a, b):
-    return a + b
+def add(left, right):
+    return left + right
 
 
-def subtract(a, b):
-    return a - b
+def subtract(left, right):
+    return left - right
 
 
-def multiply(a, b):
-    return a * b
+def multiply(left, right):
+    return left * right
 
 
-def divide(a, b):
-    return a / b
+def divide(left, right):
+    return left / right
 
 
-def modulus(a, b):
-    return a % b
+def remainder(left, right):
+    return left % right
 
 
-def factorial(n):
-    answer = 1
-    for i in range(1, n + 1):
-        answer *= i
-    return answer
+def factorial(number):
+    if not 0 <= number <= 100:
+        raise ValueError("Use a factorial input from 0 through 100.")
+    result = 1
+    for factor in range(2, number + 1):
+        result *= factor
+    return result
 
 
-def exponent(b, p):
-    answer = 1
-    for i in range(0, p):
-        answer *= b
-    return answer
+def power(base, exponent):
+    if not 0 <= exponent <= 100:
+        raise ValueError("Use an exponent from 0 through 100.")
+    return base**exponent
 
 
-catalog = {
-    "Addition": "+",
-    "Subtraction": "-",
-    "Multiplication": "*",
-    "Division": "/",
-    "Modulus": "%",
-    "Factorial": "!",
-    "Exponent": "^",
+def read_number(prompt):
+    try:
+        number = int(input(prompt))
+    except ValueError:
+        raise ValueError("Enter a whole number.") from None
+    if not -1000 <= number <= 1000:
+        raise ValueError("Use whole numbers from -1000 through 1000.")
+    return number
+
+
+operations = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide,
+    "%": remainder,
+    "^": power,
 }
 
-print("Welcome to the Python Calculator. These are the operations we offer:")
-for operator in catalog:
-    print(operator + ": " + catalog[operator])
-
 while True:
-    operator = input(
-        "\nPlease enter the operator of the function you would like to use: "
-    )
-
-    if operator == "!":
-        a = int(input("Number: "))
-        print("Result: " + str(factorial(a)))
-    else:
-        a = int(input("Number 1: "))
-        b = int(input("Number 2: "))
-
-        if operator == "+":
-            print("Result: " + str(add(a, b)))
-        elif operator == "-":
-            print("Result: " + str(subtract(a, b)))
-        elif operator == "*":
-            print("Result: " + str(multiply(a, b)))
-        elif operator == "/":
-            print("Result: " + str(divide(a, b)))
-        elif operator == "%":
-            print("Result: " + str(modulus(a, b)))
-        elif operator == "^":
-            print("Result: " + str(exponent(a, b)))
-        else:
-            print("Invalid Operator")
-
-    answer = input(
-        "\nWould you like to perform another operation? Enter 'Y' for yes or 'N' for no: "
-    )
-
-    if answer == "N":
+    operator = input("Operation (+, -, *, /, %, ^, !, or q): ").strip().lower()
+    if operator == "q":
         break
+    if operator != "!" and operator not in operations:
+        print("Choose a listed operation.")
+        continue
+    try:
+        left = read_number("First whole number: ")
+        if operator == "!":
+            print(f"{left}! = {factorial(left)}")
+        else:
+            right = read_number("Second whole number: ")
+            print(f"{left} {operator} {right} = {operations[operator](left, right)}")
+    except ZeroDivisionError:
+        print("Division and remainder require a nonzero second number.")
+    except ValueError as error:
+        print(error)

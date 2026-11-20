@@ -1,5 +1,5 @@
-# PS11 Bank Account starter
+# Bank Account starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
+Use the fictional accounts ari with demo-ari and bea with demo-bea. The starter checks one login and prints that account's balance. Add a menu for deposits, withdrawals, balance checks, changing the sample access phrase, and logging out. After logout, return to login and offer an exit command there.
 
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Deposit 20 whole dollars and withdraw 7. The balance should be 13. An attempt to withdraw 14, deposit a negative number, or enter text should leave it at 13. Log out and sign in as bea. That balance should still be 0. Keep the data in memory for the exercise and use fictional access phrases.
