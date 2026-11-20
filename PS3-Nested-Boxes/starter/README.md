@@ -1,5 +1,3 @@
-# PS3 Nested Boxes starter
+# Nested Boxes starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Run the top border of a three-character box. Add side borders with spaces between them, then add the bottom border. Repeat for box sizes 3 through a chosen maximum and keep the boxes separate.

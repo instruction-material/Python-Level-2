@@ -1,5 +1,3 @@
-# PS3 Uppercase to Lowercase starter
+# Uppercase to Lowercase starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Run the character-code trace for Z. The uppercase-to-lowercase offset is ord("a") minus ord("A"). Add it only for A through Z. Preserve lowercase letters, spaces, numbers, and punctuation.

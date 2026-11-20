@@ -1,23 +1,22 @@
-msg = input("Type in your message to encrypt: ")
-key = int(input("Type in the key you wish to use: "))
-new_msg = ""
+def shift_ascii(message, shift):
+    result = ""
+    for letter in message:
+        if "a" <= letter <= "z":
+            base = ord("a")
+        elif "A" <= letter <= "Z":
+            base = ord("A")
+        else:
+            result += letter
+            continue
 
-for i in range(0, len(msg)):
-    num = ord(msg[i]) + key
-    while num > ord("z"):
-        num -= 26
-    new_msg += chr(num)
+        position = ord(letter) - base
+        wrapped = (position + shift) % 26
+        result += chr(base + wrapped)
+    return result
 
-print(new_msg)
 
-msg = input("Type in your message to decrypt: ")
-key = int(input("Type in the decryption key: "))
-new_msg = ""
-
-for i in range(0, len(msg)):
-    num = ord(msg[i]) - key
-    while num < ord("a"):
-        num += 26
-    new_msg += chr(num)
-
-print(new_msg)
+message = input("Sample message: ")
+shift = int(input("Shift: "))
+shifted = shift_ascii(message, shift)
+print("Shifted:", shifted)
+print("Restored:", shift_ascii(shifted, -shift))

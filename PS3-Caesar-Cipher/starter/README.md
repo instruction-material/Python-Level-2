@@ -1,5 +1,3 @@
-# PS3 Caesar Cipher starter
+# Caesar Cipher starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Enter z and a shift of 1. The diagnostic shows a shifted position of 26. Wrap positions within 0 through 25, convert them back to letters, and use the opposite shift to restore the message. Handle uppercase separately and carry other characters through unchanged.

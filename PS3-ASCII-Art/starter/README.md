@@ -1,5 +1,3 @@
-# PS3 ASCII Art starter
+# ASCII Art starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
-
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Enter 4 to print one row of four marks. Repeat that row with an outer loop so the number of rows matches the width. Compare the result for sizes 1, 4, and 10.

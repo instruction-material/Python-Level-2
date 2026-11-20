@@ -1,12 +1,11 @@
-upper = input("Enter a word in all uppercase: ")
-lower = ""
+text = input("Enter a short line: ")
+offset = ord("a") - ord("A")
+converted = ""
 
-# calculate the numerical difference between the ASCII representation of A and a
-difference = ord("A") - ord("a")
+for letter in text:
+    code = ord(letter)
+    if ord("A") <= code <= ord("Z"):
+        code += offset
+    converted += chr(code)
 
-# iterate through the inputted string and apply this different to each character
-for i in range(0, len(upper)):
-    char = upper[i]
-    lower += chr(ord(char) - difference)
-
-print("The word in all lowercase is: " + lower)
+print("Converted:", converted)

@@ -1,21 +1,11 @@
-for i in range(4):
-    size = i + 3
+maximum = int(input("Largest box size, at least 3: "))
 
-    # draw the top side of the box
-    for j in range(size):
-        print("#", end="")
-    print("")
-
-    # draw the sides of the box, one line at a time
-    for j in range(size - 2):
-        print("#", end="")
-        for k in range(size - 2):
-            print(" ", end="")
-        print("#")
-
-    # draw the bottom side of the box
-    for j in range(size):
-        print("#", end="")
-    print("")
-
+for size in range(3, maximum + 1):
+    for row in range(size):
+        for column in range(size):
+            if row in (0, size - 1) or column in (0, size - 1):
+                print("#", end="")
+            else:
+                print(" ", end="")
+        print()
     print()
