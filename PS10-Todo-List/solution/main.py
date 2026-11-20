@@ -1,26 +1,29 @@
-print("Welcome to your todo list!\n")
+def show_tasks(tasks):
+    if tasks:
+        for position, task in enumerate(tasks, start=1):
+            print(f"{position}. {task}")
+    else:
+        print("No tasks.")
+
+
 tasks = []
-
 while True:
-    input_num = input(
-        "What would you like to do with your todo list? \n 1. Add a task \n 2. Remove a task \n 3. Exit \nType in the number here: "
-    )
-
-    print("")
-    if input_num == "1":
-        task = input("Please type in the task you'd like to add: ")
-        tasks.append(task)
-    elif input_num == "2":
-        remove_num = input(
-            "Please type in the number of the task you'd like to remove: "
-        )
-        tasks.remove(tasks[int(remove_num) - 1])
-    elif input_num == "3":
+    command = input("1 add, 2 remove, 3 exit, 4 show: ").strip()
+    if command == "3":
         break
-
-    # print todo list
-    print("")
-    print("Here's your updated list: ")
-    for i in range(0, len(tasks)):
-        print(str(i + 1) + ". " + tasks[i])
-    print("")
+    if command == "1":
+        task = input("Task: ").strip()
+        if task:
+            tasks.append(task)
+        else:
+            print("Enter a task.")
+    elif command == "2":
+        if tasks:
+            position = input("Position to remove: ").strip()
+            if position.isascii() and position.isdecimal() and 1 <= int(position) <= len(tasks):
+                print(f"Removed: {tasks.pop(int(position) - 1)}")
+            else:
+                print("Choose one of the displayed positions.")
+    elif command != "4":
+        print("Choose a command from 1 through 4.")
+    show_tasks(tasks)

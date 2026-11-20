@@ -1,5 +1,5 @@
-# PS10 Field Day starter
+# Field Day starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
+The starter records one fictional participant. Complete the program for ten different names. Enter 1 for kickball, 2 for capture the flag, 3 for both, or 4 for neither. Ask again after a blank or repeated name or an invalid choice. Make two event rosters and a separate list for participants who chose neither. Keep the order in which names were entered.
 
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+With ari choosing 1, bea choosing 2, cleo choosing 3, and dara choosing 4, ari and cleo belong to kickball, bea and cleo belong to flag, and dara belongs to neither.

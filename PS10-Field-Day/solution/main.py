@@ -1,24 +1,26 @@
+choices_by_name = {}
+while len(choices_by_name) < 10:
+    name = input("Fictional name: ").strip().lower()
+    if not name or name in choices_by_name:
+        print("Enter a new, nonempty name.")
+        continue
+
+    choice = input("1 kickball, 2 flag, 3 both, 4 neither: ").strip()
+    while choice not in ("1", "2", "3", "4"):
+        choice = input("Choose 1, 2, 3, or 4: ").strip()
+    choices_by_name[name] = choice
+
 kickball = []
 flag = []
-
-for i in range(10):
-    name = input("Enter your name: ")
-
-    answer = input(
-        "Would you like to play kickball, capture the flag, both, or neither?\nEnter '1' for kickball\nEnter '2' for capture the flag\nEnter '3' for both\nEnter '4' for neither\nYour choice: "
-    )
-    print()
-
-    if answer == "1" or answer == "3":
+neither = []
+for name, choice in choices_by_name.items():
+    if choice in ("1", "3"):
         kickball.append(name)
-    if answer == "2" or answer == "3":
+    if choice in ("2", "3"):
         flag.append(name)
+    if choice == "4":
+        neither.append(name)
 
-
-print("Kickball team roster:")
-for name in kickball:
-    print(name)
-
-print("Capture the flag roster:")
-for name in flag:
-    print(name)
+print(f"Kickball: {', '.join(kickball) or 'none'}")
+print(f"Capture the flag: {', '.join(flag) or 'none'}")
+print(f"Neither: {', '.join(neither) or 'none'}")

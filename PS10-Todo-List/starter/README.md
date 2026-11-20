@@ -1,5 +1,5 @@
-# PS10 Todo List starter
+# To-Do List starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
+Run the starter and use 1 to add a task, 4 to display the list, and 3 to quit. Add command 2 to remove a task by its displayed position. Positions begin at 1. Reject invalid positions without changing the list. When there are no tasks, print an empty-list message.
 
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Add read, stretch, and read. Removing position 3 leaves read followed by stretch. Then try positions 0, 20, and text. They should leave the list unchanged.

@@ -1,5 +1,5 @@
-# PS10 Field Day II starter
+# Field Day II starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
+The starter makes a working copy of a roster and picks the first red team member. Take each assigned name out of the working copy. Alternate Team Red and Team Blue. Stop when every name is assigned. The original roster stays available.
 
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Ten distinct names produce five on either team. With three names, Red gets two and Blue gets one. Test a one-person roster and an empty roster. The two teams should have no members in common.
