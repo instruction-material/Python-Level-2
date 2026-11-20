@@ -1,34 +1,52 @@
 import random
+from string import ascii_lowercase
 
-# reads words into list
-f = open("valid_words.txt")
-valid_words = f.readlines()
-valid_words = [x.strip() for x in valid_words]
-f.close()
+PRACTICE_LETTERS = "xcatmint"
+RANDOM_LIMIT = 20_000
 
 
-def find_valid_word(n):
-    monkey_str = ""
-    print("Here's what the monkeys are typing on the typewriter:")
-    while True:
-        # add a random character to the end of the monkeys' typing
-        monkey_str += chr(random.randint(ord("a"), ord("z")))
-        print(monkey_str)
-
-        # check if last n letters are a valid word
-        if len(monkey_str) >= n:
-
-            # get the last n letters of what has been typed
-            # Pythonic shortcut: lastThreeLetters = monkeyStr[len(monkeyStr)-n:len(monkeyStr)]
-            last_n_letters = ""
-            for i in range(len(monkey_str) - n, len(monkey_str)):
-                last_n_letters += monkey_str[i]
-
-            if last_n_letters in valid_words:
-                print("The monkeys did it! " + last_n_letters + " is a word!")
-                break
+def load_words_by_length():
+    by_length = {}
+    with open("valid_words.txt", encoding="utf-8") as file:
+        for line in file:
+            word = line.strip().lower()
+            if word and all(letter in ascii_lowercase for letter in word):
+                by_length.setdefault(str(len(word)), set()).add(word)
+    return by_length
 
 
-while True:
-    length = int(input("How long should the word be? "))
-    find_valid_word(length)
+def find_word(letters, words, length):
+    window = ""
+    count = 0
+    for count, letter in enumerate(letters, start=1):
+        window = (window + letter)[-length:]
+        if len(window) == length and window in words:
+            return window, count
+    return None, count
+
+
+def main():
+    by_length = load_words_by_length()
+    lengths = ", ".join(sorted(by_length, key=int))
+    try:
+        choice = input(f"Word length ({lengths}): ").strip()
+        if choice not in by_length:
+            print("Choose a length from the word list.")
+            return
+        mode = input("p for practice or Enter for random: ").strip().lower()
+    except EOFError:
+        print("Search cancelled.")
+        return
+    if mode == "p":
+        letters = PRACTICE_LETTERS
+    else:
+        letters = (random.choice(ascii_lowercase) for _ in range(RANDOM_LIMIT))
+    word, count = find_word(letters, by_length[choice], int(choice))
+    if word is None:
+        print(f"No match after {count} letters.")
+    else:
+        print(f"Found {word} after {count} letters.")
+
+
+if __name__ == "__main__":
+    main()

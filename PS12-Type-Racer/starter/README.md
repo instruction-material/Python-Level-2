@@ -1,5 +1,5 @@
-# PS12 Type Racer starter
+# Typing Speed Practice starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
+Run the starter twice. Enter exactly `Rain taps on the glass.` for a match, then try it with a missing period for a mismatch.
 
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Add a countdown, a random choice from a list of sentences, and a fixed practice option. Use `time.monotonic()` after the sentence appears and again when the response matches. A mismatch adds to the attempt count and keeps the same clock running. Offer `:quit` to end the round.

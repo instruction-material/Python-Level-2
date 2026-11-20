@@ -1,29 +1,50 @@
-import time
 import random
+import time
 
-sentences = [
-    "Peter Piper picked a peck of pickled peppers",
-    "She sells seashells by the sea shore",
-    "How much wood could a woodchuck chuck if a woodchuck could chuck wood?",
-    "If a dog chews shoes, whose shoes does he choose?",
-    "If you notice this notice, you will notice that this notice is not worth noticing",
-    "I saw Susie sitting in a shoe shine shop",
+PRACTICE_SENTENCE = "Rain taps on the glass."
+SENTENCES = [
+    PRACTICE_SENTENCE,
+    "A yellow kite crossed the field.",
+    "Six green beads rolled off the table.",
 ]
 
-input("Welcome to Type Racer. Press Enter to play.")
-print("Ready....")
-time.sleep(1)
-print("Set....")
-time.sleep(1)
-print("Type!")
 
-sentence = sentences[random.randint(0, 5)]
-print(sentence)
-start_time = time.time()
-typed_input = input("Type: ")
-while typed_input != sentence:
-    print("The sentences do not match! Please try again.")
-    typed_input = input("Type: ")
-end_time = time.time()
+def run_round(target, read=input, write=print, clock=time.monotonic):
+    write(f"Target: {target}")
+    start = clock()
+    attempts = 0
+    while True:
+        try:
+            response = read("Type the sentence (or :quit): ")
+        except EOFError:
+            response = ":quit"
+        if response == ":quit":
+            write("Round ended.")
+            return
+        attempts += 1
+        if response == target:
+            elapsed = clock() - start
+            write(f"Exact match in {attempts} attempt(s).")
+            write(f"Elapsed: {elapsed:.2f} seconds.")
+            return elapsed, attempts
+        write("The text differs from the target. Try again.")
 
-print("You finished typing in " + str(end_time - start_time) + " seconds!")
+
+def main():
+    try:
+        mode = input("Enter for a random target, or p for practice: ").strip().lower()
+    except EOFError:
+        print("Round ended.")
+        return
+    if mode == "p":
+        run_round(PRACTICE_SENTENCE)
+        return
+    for label in ("Ready", "Set"):
+        print(label)
+        time.sleep(1)
+    print("Type!")
+    run_round(random.choice(SENTENCES))
+
+
+if __name__ == "__main__":
+    main()

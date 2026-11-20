@@ -1,17 +1,18 @@
-password = "tavaenryvahwribyv"
+def decode(message, shift):
+    decoded = ""
+    for letter in message:
+        if "a" <= letter <= "z":
+            first = ord("a")
+        elif "A" <= letter <= "Z":
+            first = ord("A")
+        else:
+            decoded += letter
+            continue
+        index = (ord(letter) - first - shift) % 26
+        decoded += chr(first + index)
+    return decoded
 
-# reverse the string
-reversed_str = ""
-for i in range(len(password) - 1, -1, -1):
-    reversed_str += password[i]
 
-# run through all possible keys from a to z and print out what the original password could have been
-
-for key in range(ord("a"), ord("z") + 1):
-    guess = ""
-    for i in range(0, len(reversed_str)):
-        num = ord(reversed_str[i]) - key
-        while num < ord("a"):
-            num += 26
-        guess += chr(num)
-    print(guess)
+sample = "Eoxh frphw!"
+for shift in range(26):
+    print(f"Shift {shift}: {decode(sample, shift)}")

@@ -1,5 +1,5 @@
-# PS3 Password Cracker starter
+# Caesar Shift Detective starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
+Run the starter to apply shift 3 to the encoded sample phrase `Eoxh frphw!`. Expect `Blue comet!`. The alphabet wraps around, so decoding `C` with shift 3 gives `Z`.
 
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Extend the starter to print each candidate from shift 0 through shift 25 with its shift number. The readable phrase should appear only at shift 3. Leave spaces and punctuation in place and preserve the case of each letter.
