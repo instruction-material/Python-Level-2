@@ -1,5 +1,5 @@
-# PS14 Mastermind starter
+# Signal Digits starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
+The signal has four digits from 0 through 5. Count exact matches first and set those positions aside. Count each remaining signal digit at most as many times as it occurs. For signal 2032 and trial 2230, expect two exact and two misplaced. Trial 2222 gives two exact and zero misplaced.
 
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Give each round eight trials. A hint reveals the sum of the hidden digits and spends one trial. Invalid input uses none. Choose p to practice with 2032.

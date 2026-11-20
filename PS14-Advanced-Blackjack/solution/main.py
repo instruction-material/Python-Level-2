@@ -1,145 +1,95 @@
 import random
-import time
 
-input(
-    "Welcome to the game of Blackjack! In this game, you will be dealt two cards to start. Your goal is to get as close to 21 as possible without going over - or busting! In this game, Jack, Queen, and King are each worth 10 and the Ace is worth 1 or 11.\n\nThe dealer will first ask you to hit (take another card) or stay. As long as you don't bust, once you decide to stay, the dealer will then play his hand. The dealer always has to hit until his hand is at least 17. Whoever has the better hand at the end wins!\n\nPress Enter to start playing.\n"
-)
-
-# the cardNames dicts translates the J, Q, K, A
-card_names = {11: "Jack", 12: "Queen", 13: "King", 1: "Ace"}
+RANKS = ("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K")
+NAMES = {"A": "Ace", "J": "Jack", "Q": "Queen", "K": "King"}
+PRACTICE = ("A", "6", "9", "7", "8", "4", "2")
 
 
-# this function prints out a hand with the appropriate names
-def print_hand(hand):
-    output_hand = []
-    for num in hand:
-        if num == 1 or num > 10:
-            output_hand.append(card_names[num])
+def hand_value(hand):
+    total = 0
+    for rank in hand:
+        if rank == "A":
+            total += 1
+        elif rank in NAMES:
+            total += 10
         else:
-            output_hand.append(num)
-    print(output_hand)
-    print()
+            total += int(rank)
+    if "A" in hand and total + 10 <= 21:
+        total += 10
+    return total
 
 
-# this function calculates the possible values of each hand (Ace can be 1 or 11)
-def calc_hand_values(hand):
-    sum = 0
-    num_aces = 0
-    for num in hand:
-        if num == 1:
-            num_aces += 1
-            sum += 1
-        elif num > 10:
-            sum += 10
+def show_hand(label, hand):
+    cards = ", ".join(NAMES.get(rank, rank) for rank in hand)
+    print(f"{label}: {cards} = {hand_value(hand)}")
+
+
+def play_round(deck):
+    player = [next(deck), next(deck)]
+    dealer = [next(deck), next(deck)]
+    show_hand("Player", player)
+    player_natural = hand_value(player) == 21
+    dealer_natural = hand_value(dealer) == 21
+    if player_natural or dealer_natural:
+        show_hand("Dealer", dealer)
+        if player_natural and dealer_natural:
+            print("Tie: both start with 21.")
+        elif player_natural:
+            print("Player wins with a two-card 21.")
         else:
-            sum += num
+            print("Dealer wins with a two-card 21.")
+        return True
 
-    # sum currently holds the minimum possible value of the hand. for each Ace in the hand, we should add 10 to the possible values
-    values = [sum]
-    for i in range(1, num_aces + 1):
-        values.append(sum + i * 10)
+    while hand_value(player) < 21:
+        action = input("h to hit, s to stay, q to quit: ").strip().lower()
+        if action == "q":
+            return False
+        if action == "s":
+            break
+        if action == "h":
+            player.append(next(deck))
+            show_hand("Player", player)
+        else:
+            print("Choose h, s or q.")
 
-    return values
+    player_total = hand_value(player)
+    if player_total > 21:
+        print("Player busts. Dealer wins.")
+        return True
+    show_hand("Dealer", dealer)
+    while hand_value(dealer) < 17:
+        dealer.append(next(deck))
+        show_hand("Dealer draws", dealer)
+    dealer_total = hand_value(dealer)
+    if dealer_total > 21:
+        print("Dealer busts. Player wins.")
+    elif player_total > dealer_total:
+        print("Player wins.")
+    elif player_total < dealer_total:
+        print("Dealer wins.")
+    else:
+        print("Tie.")
+    return True
 
 
-# this function calculates the largest possible value of a hand under 21
-def get_final_value(hand):
-    final_value = 0
-    values = sorted(calc_hand_values(hand))
-    for num in values:
-        if num <= 21:
-            final_value = num
+def main():
+    while True:
+        mode = input("p for practice, Enter to deal, q to quit: ").strip().lower()
+        if mode == "q":
+            return
+        deck = list(RANKS) * 4
+        if mode == "p":
+            for card in PRACTICE:
+                deck.remove(card)
+            deck = list(PRACTICE) + deck
+        else:
+            random.shuffle(deck)
+        if not play_round(iter(deck)):
+            return
 
-    return final_value
 
-
-while True:
-    player_hand = []
-
-    # deal first two cards to player
-    for i in range(2):
-        player_hand.append(random.randint(1, 13))
-
-    # print out player's cards
-    print("Here is your hand: ")
-    print_hand(player_hand)
-
-    # use this variable to track when the game should end immediately
-    continue_game = True
-
-    # check for blackjack
-    if 21 in calc_hand_values(player_hand):
-        print("Blackjack! You win! :D")
-        continue_game = False
-
-    if continue_game:
-        # ask to Hit or Stay
-        hit_or_stay = "H"
-
-        while hit_or_stay == "H":
-            while True:
-                hit_or_stay = input("Type in H to hit or S to stay:")
-                if hit_or_stay == "H" or hit_or_stay == "S":
-                    break
-                else:
-                    print("Invalid input.\n")
-
-            # if Hit, add new card and check if busted
-            if hit_or_stay == "H":
-                player_hand.append(random.randint(1, 13))
-                print("Here is your hand: ")
-                print_hand(player_hand)
-
-                hand_values = calc_hand_values(player_hand)
-                if min(hand_values) > 21:
-                    print("You busted! :(\n")
-                    continue_game = False
-                    break
-                elif 21 in hand_values:
-                    print("Blackjack! You win! :D")
-                    continue_game = False
-                    break
-
-        if continue_game:
-            print("Dealer's turn!\n")
-
-            # deal first two cards to dealer
-            dealer_hand = []
-            for i in range(2):
-                dealer_hand.append(random.randint(1, 13))
-
-            # print out dealer's cards
-            print("Here is the dealer's hand: ")
-            print_hand(dealer_hand)
-
-            # the dealer continues to hit until his hand is at least 17
-            while True:
-                time.sleep(1)  # make game more realistic
-                hand_values = calc_hand_values(dealer_hand)
-                if min(hand_values) < 17:
-                    dealer_hand.append(random.randint(1, 13))
-                    print("The dealer hit. Here is the dealer's new hand:")
-                    print_hand(dealer_hand)
-                elif 21 in hand_values:
-                    print("The dealer got blackjack!")
-                    break
-                elif min(hand_values) > 21:
-                    print("The dealer busted! You win! :)")
-                    break
-                else:
-                    print("The dealer has finalized his hand.")
-                    # if the game is still going, see whose hand wins
-                    time.sleep(1)
-                    if get_final_value(player_hand) > get_final_value(
-                        dealer_hand
-                    ):
-                        print("You win! :)\n")
-                    elif get_final_value(player_hand) < get_final_value(
-                        dealer_hand
-                    ):
-                        print("The dealer won. :(\n")
-                    else:
-                        print("It's a tie!\n")
-                    break
-
-    input("Press Enter to play again!\n")
+if __name__ == "__main__":
+    try:
+        main()
+    except EOFError:
+        print("Session ended.")

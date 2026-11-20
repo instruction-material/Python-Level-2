@@ -1,5 +1,5 @@
-# PS14 Game of War starter
+# High Card Rounds starter
 
-This `starter/` directory is intentionally present for wrapper consistency in `Python-Level-2`.
+Use values from 2 through 10. Compare two draws each round. Increment only one win count or the tie count, then report the overall winner or an overall tie. Wins and ties should add to ten.
 
-The migrated legacy files for this project currently live under `solution/`. Add a distinct `starter/` implementation here when the course source is split into separate starter and solution snapshots.
+Enter Ari and Bea as the names and p for practice. The fixed ten rounds produce Ari 4, Bea 3, ties 3. Press Enter instead of p to test random draws.

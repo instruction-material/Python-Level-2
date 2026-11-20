@@ -1,81 +1,64 @@
 import random
 
-
-def clear():
-    print("\033c", end="")
-
-
-def get_correct(code, guess):
-    num_correct = 0
-    for i in range(len(guess)):
-        if code[i] == guess[i]:
-            num_correct += 1
-    return num_correct
+DIGITS = "012345"
+ATTEMPTS = 8
 
 
-def get_close(code, guess):
+def score(signal, trial):
+    exact = 0
+    available_digits = {}
+    unmatched_trials = []
+    for signal_digit, trial_digit in zip(signal, trial):
+        if trial_digit == signal_digit:
+            exact += 1
+        else:
+            available_digits[signal_digit] = available_digits.get(signal_digit, 0) + 1
+            unmatched_trials.append(trial_digit)
 
-    # remove correct digits from both strings
-    new_code = ""
-    new_guess = ""
-    for i in range(len(guess)):
-        if code[i] != guess[i]:
-            new_code += code[i]
-            new_guess += guess[i]
-    code = new_code
-    guess = new_guess
-
-    # calculate the correct number of close digits
-    num_close = 0
-    while len(code) > 0:
-        for i in range(len(guess)):
-            if guess[i] == code[0]:
-                guess = guess[0:i] + guess[i + 1 :]
-                num_close += 1
-                break
-        code = code[1:]
-    return num_close
+    misplaced = 0
+    for digit in unmatched_trials:
+        if available_digits.get(digit, 0) > 0:
+            available_digits[digit] -= 1
+            misplaced += 1
+    return exact, misplaced
 
 
-def create_secret_code(digits):
-    code = ""
-    for i in range(digits):
-        code += str(random.randint(0, 4))
-    return code
+def run_trial(signal):
+    remaining = ATTEMPTS
+    hinted = False
+    while remaining > 0:
+        trial = input(f"{remaining} trials left. Four digits, hint, or q: ").strip().lower()
+        if trial == "q":
+            print("Trial ended.")
+            return
+        if trial == "hint":
+            if hinted:
+                print("The hint was already used.")
+            else:
+                print(f"Digit sum: {sum(int(digit) for digit in signal)}")
+                hinted = True
+                remaining -= 1
+            continue
+        if len(trial) != len(signal) or any(digit not in DIGITS for digit in trial):
+            print("Use four digits from 0 through 5.")
+            continue
+        remaining -= 1
+        exact, misplaced = score(signal, trial)
+        print(f"Exact: {exact}. Misplaced: {misplaced}.")
+        if exact == len(signal):
+            print("Signal matched.")
+            return
+    print(f"No trials left. The signal was {signal}.")
 
 
-# ------------------------------------------------------------------
+def main():
+    mode = input("p for practice, or Enter for a random signal: ").strip().lower()
+    signal = "2032" if mode == "p" else "".join(random.choices(DIGITS, k=4))
+    run_trial(signal)
 
-RULES = """Mastermind
-The secret code is composed of 4 random digits between 0-4.
 
-Enter a 4 digit guess and see how close you are!
-\t-Correct: correct number, correct location
-\t-Close: correct number, incorrect location
-"""
-
-print(RULES)
-input("Press enter to start:")
-clear()
-
-NUM_DIGITS = 4
-correct = 0
-close = 0
-code = create_secret_code(NUM_DIGITS)
-
-while correct < NUM_DIGITS:
-
-    while True:
-        guess = input(
-            "Type in a " + str(NUM_DIGITS) + " digit guess (0-4): "
-        ).strip()
-        if len(guess) == NUM_DIGITS and guess.isdigit():
-            break
-
-    correct = get_correct(code, guess)
-    close = get_close(code, guess)
-    print("Correct:", correct)
-    print("Close:", close)
-    print()
-
-print("YOU WIN!!")
+if __name__ == "__main__":
+    try:
+        main()
+    except EOFError:
+        print("Session ended.")

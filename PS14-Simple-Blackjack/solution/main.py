@@ -1,91 +1,64 @@
 import random
-import time
 
-input(
-    "Welcome to the game of Blackjack! In this game, you will be dealt two cards to start. Your goal is to get as close to 21 as possible without going over - or busting! In this simple version of Blackjack, we only use the cards 2 through 11 (Ace).\n\nThe dealer will first ask you to hit (take another card) or stay. As long as you don't bust, once you decide to stay, the dealer will then play his hand. The dealer always has to hit until his hand is at least 17. Whoever has the better hand at the end wins!\n\nPress Enter to start playing.\n"
-)
+PRACTICE = (10, 7, 9, 6, 3)
 
-while True:
-    player_hand = []
 
-    # deal first two cards to player
-    for i in range(2):
-        player_hand.append(random.randint(2, 11))
+def play_round(deck):
+    player = [next(deck), next(deck)]
+    dealer = [next(deck), next(deck)]
+    print(f"Player: {player} = {sum(player)}")
+    while sum(player) < 21:
+        action = input("h to hit, s to stay, q to quit: ").strip().lower()
+        if action == "q":
+            return False
+        if action == "s":
+            break
+        if action == "h":
+            player.append(next(deck))
+            print(f"Player: {player} = {sum(player)}")
+        else:
+            print("Choose h, s or q.")
 
-    # print out player's cards
-    print("Here is your hand: ")
-    print(player_hand)
+    player_total = sum(player)
+    if player_total > 21:
+        print("Player busts. Dealer wins.")
+        return True
 
-    # use this variable to track when the game should end immediately
-    continue_game = True
+    print(f"Dealer: {dealer} = {sum(dealer)}")
+    while sum(dealer) < 17:
+        dealer.append(next(deck))
+        print(f"Dealer draws: {dealer} = {sum(dealer)}")
+    dealer_total = sum(dealer)
 
-    # check for blackjack
-    if sum(player_hand) == 21:
-        print("Blackjack! You win! :D")
-        continue_game = False
+    if dealer_total > 21:
+        print("Dealer busts. Player wins.")
+    elif player_total > dealer_total:
+        print("Player wins.")
+    elif player_total < dealer_total:
+        print("Dealer wins.")
+    else:
+        print("Tie.")
+    return True
 
-    if continue_game:
-        # ask to Hit or Stay
-        hit_or_stay = "H"
-        continue_game = True  # use this variable to track whether the game ends immediately after this
-        while hit_or_stay == "H":
-            while True:
-                hit_or_stay = input("Type in H to hit or S to stay:")
-                if hit_or_stay == "H" or hit_or_stay == "S":
-                    break
-                else:
-                    print("Invalid input.\n")
 
-            # if Hit, add new card and check if busted
-            if hit_or_stay == "H":
-                player_hand.append(random.randint(2, 11))
-                print("Here is your hand: ")
-                print(player_hand)
+def main():
+    while True:
+        mode = input("p for practice, Enter to deal, q to quit: ").strip().lower()
+        if mode == "q":
+            return
+        deck = list(range(2, 12)) * 4
+        if mode == "p":
+            for card in PRACTICE:
+                deck.remove(card)
+            deck = list(PRACTICE) + deck
+        else:
+            random.shuffle(deck)
+        if not play_round(iter(deck)):
+            return
 
-                if sum(player_hand) > 21:
-                    print("You busted! :(\n")
-                    continue_game = False
-                    break
-                elif sum(player_hand) == 21:
-                    print("Blackjack! You win! :D")
-                    continue_game = False
-                    break
 
-        if continue_game:
-            print("Dealer's turn!\n")
-
-            # deal first two cards to dealer
-            dealer_hand = []
-            for i in range(2):
-                dealer_hand.append(random.randint(2, 11))
-
-            # print out dealer's cards
-            print("Here is the dealer's hand: ")
-            print(dealer_hand)
-
-            # the dealer continues to hit until his hand is at least 17
-            while True:
-                time.sleep(1)  # make game more realistic
-                if sum(dealer_hand) < 17:
-                    dealer_hand.append(random.randint(2, 11))
-                    print("The dealer hit. Here is the dealer's new hand:")
-                    print(dealer_hand)
-                elif sum(dealer_hand) == 21:
-                    print("The dealer got blackjack!")
-                    break
-                elif sum(dealer_hand) > 21:
-                    print("The dealer busted! You win! :)")
-                    break
-                else:
-                    print("The dealer has finalized his hand.")
-                    # if the game is still going, see whose hand wins
-                    time.sleep(1)
-                    if sum(player_hand) > sum(dealer_hand):
-                        print("You win! :)\n")
-                    elif sum(player_hand) < sum(dealer_hand):
-                        print("The dealer won. :(\n")
-                    else:
-                        print("It's a tie!\n")
-                    break
-
-    input("Press Enter to play again!\n")
+if __name__ == "__main__":
+    try:
+        main()
+    except EOFError:
+        print("Session ended.")

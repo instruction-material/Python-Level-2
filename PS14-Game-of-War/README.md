@@ -1,10 +1,3 @@
-# PS14 Game of War
+# High Card Rounds
 
-Canonical source repository: `Python-Level-2`
-
-This project was migrated from the legacy direct-source layout on 2026-05-14. The original files are preserved under `solution/` as the current solution/reference snapshot.
-
-## Structure
-
-- `solution/` contains the migrated source files.
-- `starter/` is present to keep the course wrapper shape consistent; add a distinct starter snapshot there when one is available.
+The starter compares one pair of cards. The reference draws two independent values for each of ten rounds and tracks both win counts and ties.
