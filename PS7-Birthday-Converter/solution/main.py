@@ -1,44 +1,32 @@
-month_to_string = {
-    1: "January",
-    2: "February",
-    3: "March",
-    4: "April",
-    5: "May",
-    6: "June",
-    7: "July",
-    8: "August",
-    9: "September",
-    10: "October",
-    11: "November",
-    12: "December",
-}
+from datetime import date
 
-day_suffix = {
-    0: "th",
-    1: "st",
-    2: "nd",
-    3: "rd",
-    4: "th",
-    5: "th",
-    6: "th",
-    7: "th",
-    8: "th",
-    9: "th",
-}
+MONTH_NAMES = {1: "January", 2: "February", 3: "March", 4: "April",
+               5: "May", 6: "June", 7: "July", 8: "August",
+               9: "September", 10: "October", 11: "November", 12: "December"}
+ORDINAL_ENDINGS = {1: "st", 2: "nd", 3: "rd"}
 
-date = input('Enter your birthday in the form "mm/dd/yyyy": ')
 
-month = 10 * int(date[0]) + int(date[1])
-day = 10 * int(date[3]) + int(date[4])
-year = (
-    1000 * int(date[6]) + 100 * int(date[7]) + 10 * int(date[8]) + int(date[9])
-)
+def display_date(sample):
+    parts = sample.strip().split("/")
+    if [len(part) for part in parts] != [2, 2, 4] or not all(
+        part.isascii() and part.isdecimal() for part in parts
+    ):
+        raise ValueError("Use mm/dd/yyyy.")
+    month, day, year = [int(part) for part in parts]
+    try:
+        date(year, month, day)
+    except ValueError:
+        raise ValueError("This date does not exist.") from None
 
-month_string = month_to_string[month]
-day_string = str(day) + day_suffix[day % 10]
+    ending = "th" if 11 <= day <= 13 else ORDINAL_ENDINGS.get(day % 10, "th")
+    return f"{MONTH_NAMES[month]} {day}{ending}, {year:04d}"
 
-# special cases for 11th, 12th, 13th
-if day == 11 or day == 12 or day == 13:
-    day_string = str(day) + "th"
 
-print("You were born on " + month_string + " " + day_string + ", " + str(year))
+if __name__ == "__main__":
+    try:
+        sample = input("Sample date (mm/dd/yyyy): ")
+        print(f"Date: {display_date(sample)}")
+    except ValueError as error:
+        print(error)
+    except EOFError:
+        print("No date entered.")

@@ -5,3 +5,7 @@ d = {
     'l2': ['six', {'d5': 'seven'}],
     's2': 'one',
 }
+
+print(d["s2"])
+
+# Trace each remaining key or index to print two through eight.

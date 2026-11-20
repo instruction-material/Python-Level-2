@@ -1,10 +1,3 @@
-# PS7 Coffee Shop
+# Coffee Shop
 
-Canonical source repository: `Python-Level-2`
-
-This project consolidates the legacy `PS7-Coffee-Shop` and `PS7-Coffee-Shop-Starter` folders into the common course wrapper layout.
-
-## Structure
-
-- `starter/` contains the starter/template snapshot.
-- `solution/` contains the solution/reference snapshot.
+The starter stores menu names and prices in two lists. The reference builds a dictionary, catches mismatched lists and repeated names, and prints each price to two decimal places.

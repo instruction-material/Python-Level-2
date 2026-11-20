@@ -1,10 +1,3 @@
-# PS7 Birthday Converter
+# Birthday Converter
 
-Canonical source repository: `Python-Level-2`
-
-This project consolidates the legacy `PS7-Birthday-Converter` and `PS7-Birthday-Converter-Starter` folders into the common course wrapper layout.
-
-## Structure
-
-- `starter/` contains the starter/template snapshot.
-- `solution/` contains the solution/reference snapshot.
+The starter looks up the month from one fictional date. The reference accepts mm/dd/yyyy, checks the calendar date, and uses month and day-ending dictionaries to display it in words.

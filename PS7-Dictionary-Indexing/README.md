@@ -1,10 +1,3 @@
-# PS7 Dictionary Indexing
+# Dictionary Indexing
 
-Canonical source repository: `Python-Level-2`
-
-This project consolidates the legacy `PS7-Dictionary-Indexing` and `PS7-Dictionary-Indexing-Starter` folders into the common course wrapper layout.
-
-## Structure
-
-- `starter/` contains the starter/template snapshot.
-- `solution/` contains the solution/reference snapshot.
+The starter demonstrates the first lookup. The reference prints one through eight from the supplied dictionary by selecting keys and indexes. Each expression follows the shape of the nested data.

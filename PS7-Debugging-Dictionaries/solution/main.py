@@ -1,37 +1,18 @@
-# I have 15 Snickers, 7 Almond Joys, 6 Twix, 9 Kit Kats, 3 Reese's Cups, and 2 Butterfingers
 candies = {
-    "Snickers": 15,
-    "Almond Joy": 7,
-    "Twix": 6,
-    "Kit Kat": 9,
-    "Reese's Cups": 3,
-    "Butterfingers": 2,
+    "Caramel": 15,
+    "Almond chocolate": 7,
+    "Wafer bar": 6,
+    "Crisp bar": 9,
+    "Peanut cup": 3,
+    "Toffee": 2,
 }
 
-# Print how many I have of each type of candy
-print("A count of each of my candies:")
+print(f"Original total: {sum(candies.values())}")
 for candy in candies:
-    print(candy + ": " + str(candies[candy]))
+    candies[candy] = max(0, candies[candy] - 1)
 
-
-# Oops, I forgot that I ate one of each kind of candy. I need to subtract one from each count!
-for candy in candies:
-    candies[candy] -= 1
-
-
-# I traded all of my Twixes to my friend for 4 Junior Mints
-candies["Twix"] = 0
-candies["Junior Mints"] = 4
-
-print()
-print("An updated count of each of my candies:")
-for candy in candies:
-    print(candy + ": " + str(candies[candy]))
-
-# Bonus: Calculate and print out the total pieces of candy I now own
-"""
-total = 0
-for candy in candies:
-  total += candies[candy]
-print("I now have " + str(total) + " pieces of candy!")
-"""
+candies["Wafer bar"] = 0
+candies["Mint"] = candies.get("Mint", 0) + 4
+for candy, count in candies.items():
+    print(f"{candy}: {count}")
+print(f"Final total: {sum(candies.values())}")

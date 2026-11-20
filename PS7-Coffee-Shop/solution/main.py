@@ -9,11 +9,15 @@ drinks = [
 ]
 prices = [2.50, 2.50, 4.00, 4.25, 3.00, 2.75, 5.25]
 
-menu = {}
-for i in range(len(drinks)):
-    menu[drinks[i]] = prices[i]
 
-print("Here is our menu!")
+def build_menu(names, costs):
+    if len(names) != len(costs):
+        raise ValueError("Give each item one price.")
+    if len(set(names)) != len(names):
+        raise ValueError("Use each item name once.")
+    return dict(zip(names, costs))
 
-for drink in menu:
-    print(drink + ": $" + str(menu[drink]))
+
+menu = build_menu(drinks, prices)
+for drink, cost in menu.items():
+    print(f"{drink}: ${cost:.2f}")
